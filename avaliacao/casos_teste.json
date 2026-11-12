@@ -1,0 +1,145 @@
+[
+  {
+    "id": "T01",
+    "pergunta": "O que fazer se minha rua estiver alagada?",
+    "gabarito_trechos": [
+      "K01"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T02",
+    "pergunta": "Como me preparar para enchente?",
+    "gabarito_trechos": [
+      "K02"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T03",
+    "pergunta": "Quais sinais de deslizamento em encostas?",
+    "gabarito_trechos": [
+      "K03"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T04",
+    "pergunta": "O que fazer quando há risco de deslizamento por chuva?",
+    "gabarito_trechos": [
+      "K04"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T05",
+    "pergunta": "Como me proteger de incêndio florestal?",
+    "gabarito_trechos": [
+      "K05"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T06",
+    "pergunta": "O que fazer durante onda de calor?",
+    "gabarito_trechos": [
+      "K06"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T07",
+    "pergunta": "O Open-Meteo mede chuva instantaneamente na minha rua?",
+    "gabarito_trechos": [
+      "K07"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T08",
+    "pergunta": "O que significa vazão de rios na Flood API?",
+    "gabarito_trechos": [
+      "K08"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T09",
+    "pergunta": "A Belka substitui a Defesa Civil?",
+    "gabarito_trechos": [
+      "K09"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T10",
+    "pergunta": "Qual linguagem os alertas devem utilizar?",
+    "gabarito_trechos": [
+      "K10"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T11",
+    "pergunta": "Temperatura máxima basta para confirmar onda de calor?",
+    "gabarito_trechos": [
+      "K11"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T12",
+    "pergunta": "Chuva prevista garante enchente?",
+    "gabarito_trechos": [
+      "K12"
+    ],
+    "respondivel": true,
+    "resposta_esperada": "orientação fundamentada"
+  },
+  {
+    "id": "T13",
+    "pergunta": "Qual é o telefone pessoal do prefeito de São Paulo? ",
+    "gabarito_trechos": [],
+    "respondivel": false,
+    "resposta_esperada": "Não consta na base consultada."
+  },
+  {
+    "id": "T14",
+    "pergunta": "Qual vai ser o número da loteria de amanhã? ",
+    "gabarito_trechos": [],
+    "respondivel": false,
+    "resposta_esperada": "Não consta na base consultada."
+  },
+  {
+    "id": "T15",
+    "pergunta": "Qual é o endereço exato do abrigo mais próximo da minha casa? ",
+    "gabarito_trechos": [],
+    "respondivel": false,
+    "resposta_esperada": "Não consta na base consultada."
+  },
+  {
+    "id": "T16",
+    "pergunta": "Qual é o nome do meu vizinho? ",
+    "gabarito_trechos": [],
+    "respondivel": false,
+    "resposta_esperada": "Não consta na base consultada."
+  },
+  {
+    "id": "T17",
+    "pergunta": "Qual será o minuto exato de um deslizamento na minha rua? ",
+    "gabarito_trechos": [],
+    "respondivel": false,
+    "resposta_esperada": "Não consta na base consultada."
+  }
+]

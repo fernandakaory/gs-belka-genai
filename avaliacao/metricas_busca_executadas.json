@@ -1,0 +1,49 @@
+{
+  "data_execucao": "2026-11-09",
+  "dataset": "avaliacao/casos_teste.json",
+  "fontes": 9,
+  "trechos": 24,
+  "resultados": [
+    {
+      "limiar": 0.2,
+      "casos_respondiveis": 12,
+      "casos_nao_consta": 5,
+      "recall_at_1": 0.667,
+      "recall_at_3": 1.0,
+      "falsos_positivos_nao_consta": 1
+    },
+    {
+      "limiar": 0.5,
+      "casos_respondiveis": 12,
+      "casos_nao_consta": 5,
+      "recall_at_1": 0.667,
+      "recall_at_3": 1.0,
+      "falsos_positivos_nao_consta": 1
+    },
+    {
+      "limiar": 1.0,
+      "casos_respondiveis": 12,
+      "casos_nao_consta": 5,
+      "recall_at_1": 0.667,
+      "recall_at_3": 1.0,
+      "falsos_positivos_nao_consta": 1
+    },
+    {
+      "limiar": 1.5,
+      "casos_respondiveis": 12,
+      "casos_nao_consta": 5,
+      "recall_at_1": 0.667,
+      "recall_at_3": 0.917,
+      "falsos_positivos_nao_consta": 0
+    },
+    {
+      "limiar": 2.0,
+      "casos_respondiveis": 12,
+      "casos_nao_consta": 5,
+      "recall_at_1": 0.5,
+      "recall_at_3": 0.667,
+      "falsos_positivos_nao_consta": 0
+    }
+  ],
+  "nota": "Exploratório, testes não independentes e bases ampliadas. Escolha de limiar requer revisão."
+}

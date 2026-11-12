@@ -1,0 +1,74 @@
+[
+  {
+    "id": "S01",
+    "titulo": "Defesa Civil Nacional — Saiba como agir",
+    "url": "https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/saiba-como-agir",
+    "orgao": "Secretaria Nacional de Proteção e Defesa Civil",
+    "licenca": "verificar termos de reutilização da página; trechos abaixo são paráfrases próprias",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S02",
+    "titulo": "Open-Meteo Forecast API",
+    "url": "https://open-meteo.com/en/docs",
+    "orgao": "Open-Meteo",
+    "licenca": "verificar licença e limites do serviço conforme uso",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S03",
+    "titulo": "Open-Meteo Flood API",
+    "url": "https://open-meteo.com/en/docs/flood-api",
+    "orgao": "Open-Meteo",
+    "licenca": "verificar licença e limites do serviço conforme uso",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S04",
+    "titulo": "Manual de marca Belka v1.0 (fornecido pela equipe)",
+    "url": "docs/manual_de_marca_referencia.md",
+    "orgao": "Equipe Belka",
+    "licenca": "material da equipe",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S05",
+    "titulo": "Ministério da Saúde — Ondas de Calor",
+    "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/o/ondas-de-calor",
+    "orgao": "Ministério da Saúde",
+    "licenca": "Referência informativa; paráfrase autoral resumida; revisar termos antes de redistribuição",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S06",
+    "titulo": "Cemaden — Portais oficiais de monitoramento",
+    "url": "https://www.gov.br/cemaden/pt-br/assuntos/briefing-cemaden-cenad/06-11-2026-briefing-cemaden-cenad",
+    "orgao": "Cemaden/MCTI",
+    "licenca": "Referência informativa; paráfrase autoral resumida; revisar termos antes de redistribuição",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S07",
+    "titulo": "Open-Meteo Historical Weather API",
+    "url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "orgao": "Open-Meteo",
+    "licenca": "Referência informativa; paráfrase autoral resumida; revisar termos antes de redistribuição",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S08",
+    "titulo": "Open-Meteo Historical Forecast API",
+    "url": "https://open-meteo.com/en/docs/historical-forecast-api",
+    "orgao": "Open-Meteo",
+    "licenca": "Referência informativa; paráfrase autoral resumida; revisar termos antes de redistribuição",
+    "acesso": "2026-11-09"
+  },
+  {
+    "id": "S09",
+    "titulo": "Cemaden Educação — Campanha Prevenção Riscos de Desastres",
+    "url": "https://educacao.cemaden.gov.br/wp-content/uploads/cemaden-educacao/Campanha-Prevencao-Riscos-de-Desastres_SECLIMA-1.pdf",
+    "orgao": "Cemaden Educação",
+    "licenca": "Referência informativa; paráfrase autoral resumida; revisar termos antes de redistribuição",
+    "acesso": "2026-11-09"
+  }
+]
