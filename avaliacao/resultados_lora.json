@@ -1,0 +1,1310 @@
+{
+  "metodologia": {
+    "modelo_base": "Qwen/Qwen2.5-1.5B-Instruct",
+    "adapter": "outputs\\belka-lora",
+    "dataset": "treinamento\\test.jsonl",
+    "max_new_tokens": 220,
+    "do_sample": false,
+    "observacao": "Métricas automáticas de formato e referência; não medem correção semântica ou alucinação."
+  },
+  "qwen_original": {
+    "resumo": {
+      "total": 36,
+      "json_valido": 0,
+      "citacoes_exatas": 0,
+      "citacoes_sem_inventar_ids": 0,
+      "tempo_medio_segundos": 3.9199,
+      "decisao_recusa_correta": 0,
+      "recusas_esperadas": 6,
+      "recusas_corretas": 0
+    },
+    "casos": [
+      {
+        "id": "test-novo-K01-01",
+        "familia": "enchente",
+        "resposta_modelo": "{\n  \"resposta\": \"A atitude mais segura seria procurar um local seguro e seguir os comunicados oficiais sobre as condições da área. Evite atravessar ruas alagadas, especialmente se estiver em um veículo.\",\n  \"referencia\": \"[K01]\"\n}",
+        "gabarito": {
+          "resposta": "Não atravesse a passagem alagada, mesmo que outras pessoas o façam. Procure um trajeto seguro e acompanhe orientações oficiais.",
+          "citacoes": [
+            "K01"
+          ]
+        },
+        "tempo_segundos": 4.3602,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K01-02",
+        "familia": "enchente",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada\",\n  \"citação\": \"[K01]\"\n}",
+        "gabarito": {
+          "resposta": "Não. Áreas alagadas podem ocultar buracos, correntezas e riscos elétricos. Afaste-se e busque um acesso seguro.",
+          "citacoes": [
+            "K01"
+          ]
+        },
+        "tempo_segundos": 1.314,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K02-01",
+        "familia": "enchente",
+        "resposta_modelo": "{\n  \"resposta\": \"Deve-se preparar documentos e itens essenciais para eventual deslocamento em caso de períodos chuvosos junto ao rio. Deverá ser acompanhado por comunicados da Defesa Civil e não esperar a água alcançar um nível perigoso para procurar segurança.\",\n  \"citação\": \"[K02] Em locais sujeitos a inundação, acompanhe comunicados da Defesa Civil e prepare documentos e itens essenciais para eventual deslocamento. Não espere a água alcançar um nível perigoso para procurar segurança.\"\n}",
+        "gabarito": {
+          "resposta": "Prepare documentos e itens essenciais para uma possível saída e acompanhe os comunicados da Defesa Civil.",
+          "citacoes": [
+            "K02"
+          ]
+        },
+        "tempo_segundos": 6.6717,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K02-02",
+        "familia": "enchente",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K02] Em locais sujeitos a inundação, acompanhe comunicados da Defesa Civil e prepare documentos e itens essenciais para eventual deslocamento. Não espere a água alcançar um nível perigoso para procurar segurança.\"\n}",
+        "gabarito": {
+          "resposta": "Não. Planeje o deslocamento com antecedência, deixe itens essenciais prontos e siga os comunicados da Defesa Civil.",
+          "citacoes": [
+            "K02"
+          ]
+        },
+        "tempo_segundos": 3.7606,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K03-01",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\n  \"resposta\": \"Em situações como as descritas, é crucial tomar medidas imediatas para garantir a segurança do local. A primeira coisa a fazer é afastar-se da área, evitando entrar em contato com os materiais que estão sendo movidos. Em seguida, deve-se acionar a Defesa Civil local para uma avaliação mais detalhada e orientação sobre procedimentos adequados.\",\n  \"referencia\": \"[K03]\"\n}",
+        "gabarito": {
+          "resposta": "Inclinação e movimento de terra podem sinalizar instabilidade. Afaste-se do local e avise a Defesa Civil.",
+          "citacoes": [
+            "K03"
+          ]
+        },
+        "tempo_segundos": 6.1098,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K03-02",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\n  \"resposta\": \"Sim, deve ser comunicado à Defesa Civil.\",\n  \"referencia\": \"[K03]\"\n}",
+        "gabarito": {
+          "resposta": "Sim. Rachaduras novas podem indicar instabilidade. Não permaneça na área e comunique a Defesa Civil.",
+          "citacoes": [
+            "K03"
+          ]
+        },
+        "tempo_segundos": 1.6066,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K05-01",
+        "familia": "incendio",
+        "resposta_modelo": "{\n  \"resposta\": \"Não é recomendável que um voluntário se aventure em áreas de vegetação em chamas para tentar apagá-la sozinho. É importante seguir as orientações dos serviços de emergência e evitar queimas ilegais.\",\n  \"referencia\": \"[K05]\"\n}",
+        "gabarito": {
+          "resposta": "Não se aproxime do incêndio. Siga as orientações dos serviços de emergência e use uma rota segura se houver perigo.",
+          "citacoes": [
+            "K05"
+          ]
+        },
+        "tempo_segundos": 3.5624,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K05-02",
+        "familia": "incendio",
+        "resposta_modelo": "{\n  \"resposta\": \"Não se aproxime do foco de incêndio ou da trilha. Evite a área até que os serviços de emergência tenham sido informados sobre o local. Sigamos as orientações dos responsáveis e sigamos por outra rota segura.\",\n  \"citação\": \"[K05]\"\n}",
+        "gabarito": {
+          "resposta": "Evitem se aproximar do foco de fogo e sigam as instruções dos serviços de emergência.",
+          "citacoes": [
+            "K05"
+          ]
+        },
+        "tempo_segundos": 3.5174,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K09-01",
+        "familia": "oficial",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K09]\"\n}",
+        "gabarito": {
+          "resposta": "Não. O indicador da Belka é experimental e não substitui um alerta da Defesa Civil. Verifique os canais oficiais.",
+          "citacoes": [
+            "K09"
+          ]
+        },
+        "tempo_segundos": 1.3119,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K09-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"explicacao\": \"A informação solicitada não foi encontrada em nenhum dos dados disponíveis.\"\n}",
+        "gabarito": {
+          "resposta": "Não. A ausência de informação da Belka não elimina riscos. Consulte os canais oficiais da Defesa Civil.",
+          "citacoes": [
+            "K09"
+          ]
+        },
+        "tempo_segundos": 1.843,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K12-01",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada\",\n  \"citação\": \"\"\n}",
+        "gabarito": {
+          "resposta": "Não. Precipitação prevista não confirma enchentes; condições locais e alertas oficiais precisam ser considerados.",
+          "citacoes": [
+            "K12"
+          ]
+        },
+        "tempo_segundos": 1.3253,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K12-02",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada\",\n  \"citação\": \"[K12]\"\n}",
+        "gabarito": {
+          "resposta": "Não. Também é preciso considerar solo, relevo, vulnerabilidade local, histórico e alertas oficiais.",
+          "citacoes": [
+            "K12"
+          ]
+        },
+        "tempo_segundos": 1.4834,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K13-01",
+        "familia": "calor",
+        "resposta_modelo": "```json\n{\n  \"resposta\": \"Os públicos prioritários para atenção no posto comunitário durante uma semana de calor intenso incluem os seguintes grupos:\\n\\n- Idosos\\n- Crianças\\n- Gestantes\\n- Pessoas com problemas crônicos\\n\\nAs medidas preventivas e a atenção aos sintomas são essenciais para garantir a saúde desses indivíduos.\\n\\nFonte: [K13]\\n\\nO Ministério da Saúde destaca que ondas de calor podem comprometer especialmente esses grupos, por isso é importante preparar visitas de apoio e orientações adequadas.\",\n  \"citação\": \"[K13] O Ministério da Saúde destaca que ondas de calor podem comprometer especialmente idosos, crianças, gestantes e pessoas com problemas crônicos; medidas preventivas e atenção a sintomas são importantes.\"\n}\n```",
+        "gabarito": {
+          "resposta": "Idosos, crianças, gestantes e pessoas com doenças crônicas podem precisar de atenção especial durante ondas de calor.",
+          "citacoes": [
+            "K13"
+          ]
+        },
+        "tempo_segundos": 10.9305,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K13-02",
+        "familia": "calor",
+        "resposta_modelo": "```json\n{\n  \"resposta\": \"Sim, gestantes e pessoas com doenças crônicas requerem cuidados adicionais durante ondas de calor. As medidas preventivas incluem evitar atividades físicas intensas, manter-se hidratado frequentemente, usar roupas leves e respiradores adequados. Para os pacientes com doenças crônicas, monitorar sinais vitais e ajustar medicamentos conforme necessário também é importante.\",\n  \"referencia\": \"[K13]\"\n}\n```",
+        "gabarito": {
+          "resposta": "Sim. Esses grupos, assim como idosos e crianças, podem ser mais vulneráveis ao calor extremo.",
+          "citacoes": [
+            "K13"
+          ]
+        },
+        "tempo_segundos": 5.6711,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K14-01",
+        "familia": "calor",
+        "resposta_modelo": "{\n  \"resposta\": \"Durante períodos de calor intenso, os entregadores podem adotar as seguintes medidas gerais para se protegerem e manter a saúde:\\n\\n- Beber água regularmente para evitar a hipotermia.\\n- Usar roupas leves e confortáveis para manter a temperatura corporal baixa.\\n- Buscar ambientes frescos ou abrigados quando possível.\\n- Planejar suas atividades ao ar livre em horários menos quentes do dia.\",\n  \"citação\": \"[K14] Durante calor intenso, o Ministério da Saúde orienta beber água regularmente, usar roupas leves, buscar ambientes frescos e planejar atividades ao ar livre nos horários menos quentes.\"\n}",
+        "gabarito": {
+          "resposta": "Beba água regularmente, use roupas leves e, se possível, organize atividades ao ar livre nos horários menos quentes.",
+          "citacoes": [
+            "K14"
+          ]
+        },
+        "tempo_segundos": 9.7913,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K14-02",
+        "familia": "calor",
+        "resposta_modelo": "{\n  \"resposta\": \"Durante eventos esportivos sob calor forte, os seguintes hábitos podem ser incentivados:\\n\\n- Beber água regularmente para manter a hidratação adequada.\\n- Usar roupas leves para se aquecer mais rapidamente.\\n- Buscar ambientes frescos ou ventilados durante as horas mais quentes do dia.\\n- Planejar atividades ao ar livre nos períodos menos quentes do dia.\",\n  \"citações\": [\n    \"O Ministério da Saúde recomenda que seja bebida regularmente durante eventos esportivos em dias de calor intenso.\"\n  ]\n}",
+        "gabarito": {
+          "resposta": "Hidratação regular, roupas leves e procura de ambientes frescos ajudam a reduzir a exposição ao calor.",
+          "citacoes": [
+            "K14"
+          ]
+        },
+        "tempo_segundos": 7.8907,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K15-01",
+        "familia": "calor",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"explicação\": \"O texto menciona que um termômetro registrou um pico de calor em um dia de inverno, mas não fornece informações suficientes sobre o fenômeno da onda de calor ou como esse registro pode ser considerado confirmativo desse fenômeno.\"\n}",
+        "gabarito": {
+          "resposta": "Não. É preciso avaliar se as temperaturas foram anormais para a época e se o calor persistiu por um período prolongado.",
+          "citacoes": [
+            "K15"
+          ]
+        },
+        "tempo_segundos": 4.3381,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K15-02",
+        "familia": "calor",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K15] Onda de calor envolve temperaturas anormalmente elevadas para a região e época do ano, por um período prolongado.\"\n}",
+        "gabarito": {
+          "resposta": "Não. A caracterização depende do padrão da região, da época do ano e da duração do calor anormal.",
+          "citacoes": [
+            "K15"
+          ]
+        },
+        "tempo_segundos": 3.2437,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K16-01",
+        "familia": "oficial",
+        "resposta_modelo": "{\n  \"resposta\": \"A fonte que a Defesa Civil Municipal pode usar para consultar produtos institucionais sobre risco geo-hidrológico é o Cemaden. Consultar o canal oficial do Cemaden ajuda a diferenciar entre um monitoramento institucional e um indicador experimental.\",\n  \"referencia\": \"[K16]\"\n}",
+        "gabarito": {
+          "resposta": "O Cemaden disponibiliza painéis de alertas e produtos oficiais de previsão de risco geo-hidrológico.",
+          "citacoes": [
+            "K16"
+          ]
+        },
+        "tempo_segundos": 4.4424,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K16-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\n  \"resposta\": \"O pesquisador deve verificar se o indicador de deslizamento está sendo fornecido pelo CEMADEN (Centro Nacional de Monitoramento e Alerta de Desastres Naturais), que é um órgão público brasileiro responsável por monitorar eventos geográficos e hidrológicos. Para confirmar se o indicador vem do CEMADEN, pode-se consultar diretamente seu site oficial ou entrar em contato através dos canais oficiais para obter informações confiáveis sobre as fontes das notificações.\",\n  \"referência\": \"[K16]\"\n}",
+        "gabarito": {
+          "resposta": "Consulte os produtos de monitoramento do Cemaden e os canais da Defesa Civil; os indicadores da Belka são experimentais.",
+          "citacoes": [
+            "K16"
+          ]
+        },
+        "tempo_segundos": 7.0232,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K17-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"O Sistema REINDESC (Registro Estadual de Inundações e Deslizamentos) do Cemaden pode ser consultado para buscar ocorrências passadas relacionadas a inundações e deslizamentos. É importante verificar a cobertura, acesso e qualidade dos dados antes de treinar qualquer modelo de previsão.\",\n  \"referencia\": \"[K17]\"\n}",
+        "gabarito": {
+          "resposta": "O REINDESC, do Cemaden, reúne registros desses eventos; confira cobertura, acesso e qualidade dos dados antes de usá-los.",
+          "citacoes": [
+            "K17"
+          ]
+        },
+        "tempo_segundos": 4.7294,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K17-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Antes de usar os registros do REINDESC como rótulos perfeitos, a universidade deve verificar a cobertura dos dados, garantir que tenha acesso adequado ao sistema e avaliar sua qualidade. Isso é necessário para evitar problemas de precisão no treinamento da previsão.\",\n  \"referencia\": \"[K17]\"\n}",
+        "gabarito": {
+          "resposta": "É necessário verificar cobertura, acesso e qualidade dos registros antes de utilizá-los como rótulos em pesquisa.",
+          "citacoes": [
+            "K17"
+          ]
+        },
+        "tempo_segundos": 5.2033,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K19-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K19] A Historical Weather API do Open-Meteo disponibiliza séries históricas baseadas em reanálises meteorológicas. Reanálises não equivalem automaticamente às previsões emitidas no passado.\"\n}",
+        "gabarito": {
+          "resposta": "Não. Reanálises meteorológicas históricas não equivalem às previsões efetivamente emitidas no passado.",
+          "citacoes": [
+            "K19"
+          ]
+        },
+        "tempo_segundos": 3.9654,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K19-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K19] A Historical Weather API do Open-Meteo disponibiliza séries históricas baseadas em reanálises meteorológicas. Reanálises não equivalem automaticamente às previsões emitidas no passado.\"\n}",
+        "gabarito": {
+          "resposta": "Não. Dados de reanálise não devem ser apresentados automaticamente como previsões emitidas na época.",
+          "citacoes": [
+            "K19"
+          ]
+        },
+        "tempo_segundos": 4.2759,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K21-01",
+        "familia": "oficial",
+        "resposta_modelo": "```json\n{\n  \"resposta\": \"A Defesa Civil deve ser informada.\",\n  \"citação\": \"[K21] Material educativo do Cemaden orienta observar trincas no solo ou nas paredes em áreas de encosta e acionar a Defesa Civil diante desses sinais de possível instabilidade.\"\n}\n```",
+        "gabarito": {
+          "resposta": "A trinca pode ser sinal de instabilidade. Afaste-se da área e acione a Defesa Civil.",
+          "citacoes": [
+            "K21"
+          ]
+        },
+        "tempo_segundos": 3.9233,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K21-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\n  \"resposta\": \"A conduta prudente neste caso seria verificar as rachaduras na parede e, se necessário, acionar a Defesa Civil para avaliação da situação.\", \n  \"citação\": \"[K21] Material educativo do Cemaden orienta observar trincas no solo ou nas paredes em áreas de encosta e acionar a Defesa Civil diante desses sinais de possível instabilidade.\"\n}",
+        "gabarito": {
+          "resposta": "Esses sinais merecem atenção. Evite permanecer na área possivelmente instável e procure a Defesa Civil.",
+          "citacoes": [
+            "K21"
+          ]
+        },
+        "tempo_segundos": 6.511,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K22-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Sim, uma estimativa de vazão em uma célula de 5 km pode ajudar a determinar quais portas de casas serão atingidas pela água. No entanto, é importante notar que essa estimativa não identifica por si só o alagamento de ruas ou outros locais. Além disso, a grade de resolução da API GloFAS pode não representar pequenos córregos urbanos.\",\n  \"referencia\": \"[K22]\"\n}",
+        "gabarito": {
+          "resposta": "Não. A resolução aproximada do modelo e a vazão prevista não identificam inundação em imóveis específicos.",
+          "citacoes": [
+            "K22"
+          ]
+        },
+        "tempo_segundos": 5.8184,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K22-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"A principal limitação mencionada é que a vazão do GloFAS fornecida pela API está disponível apenas em uma resolução aproximada de 5 km, o que pode não ser suficiente para representar os canais urbanos muito pequenos.\",\n  \"citação\": \"[K22] A Flood API fornece estimativas de vazão do GloFAS em resolução aproximada de 5 km.\"\n}",
+        "gabarito": {
+          "resposta": "A grade do modelo pode não representar pequenos córregos urbanos; vazão prevista não comprova alagamento em uma rua.",
+          "citacoes": [
+            "K22"
+          ]
+        },
+        "tempo_segundos": 5.2726,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K23-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"explicação\": \"O Open-Meteo Forecast API fornece previsões regionais de temperatura, mas não especificamente informa se a temperatura foi medida diretamente por um termômetro doméstico.\"\n}",
+        "gabarito": {
+          "resposta": "Não. Trata-se de uma previsão de modelo, não de uma medição feita no endereço da pessoa.",
+          "citacoes": [
+            "K23"
+          ]
+        },
+        "tempo_segundos": 3.1568,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-K23-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\n  \"resposta\": \"Não consta na base consultada.\",\n  \"citação\": \"[K23] O Open-Meteo Forecast API expõe previsão horária de precipitação, temperatura e umidade do solo, conforme disponibilidade do modelo. Os valores são previsão regional, não leitura do sensor no endereço do usuário.\"\n}",
+        "gabarito": {
+          "resposta": "Não. Esse valor é uma previsão regional do modelo, não uma leitura de sensor no imóvel.",
+          "citacoes": [
+            "K23"
+          ]
+        },
+        "tempo_segundos": 4.537,
+        "json_valido": false,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-01",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.6399,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-02",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.7274,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-03",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.5737,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-04",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.5661,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-05",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.5434,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      },
+      {
+        "id": "test-novo-recusa-06",
+        "familia": "recusa",
+        "resposta_modelo": "Não consta na base consultada.",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 0.4749,
+        "json_valido": false,
+        "recusa_esperada": true,
+        "recusou": false,
+        "recusa_correta": false,
+        "citacoes_exatas": false,
+        "citacoes_sem_inventar_ids": false
+      }
+    ]
+  },
+  "qwen_lora": {
+    "resumo": {
+      "total": 36,
+      "json_valido": 36,
+      "citacoes_exatas": 36,
+      "citacoes_sem_inventar_ids": 36,
+      "tempo_medio_segundos": 1.6843,
+      "decisao_recusa_correta": 36,
+      "recusas_esperadas": 6,
+      "recusas_corretas": 6
+    },
+    "casos": [
+      {
+        "id": "test-novo-K01-01",
+        "familia": "enchente",
+        "resposta_modelo": "{\"resposta\": \"Não atrase para evitar perigos.\", \"citacoes\": [\"K01\"]}",
+        "gabarito": {
+          "resposta": "Não atravesse a passagem alagada, mesmo que outras pessoas o façam. Procure um trajeto seguro e acompanhe orientações oficiais.",
+          "citacoes": [
+            "K01"
+          ]
+        },
+        "tempo_segundos": 1.6048,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K01-02",
+        "familia": "enchente",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K01\"]}",
+        "gabarito": {
+          "resposta": "Não. Áreas alagadas podem ocultar buracos, correntezas e riscos elétricos. Afaste-se e busque um acesso seguro.",
+          "citacoes": [
+            "K01"
+          ]
+        },
+        "tempo_segundos": 1.1621,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K02-01",
+        "familia": "enchente",
+        "resposta_modelo": "{\"resposta\": \"Documente-se e prepare-se para possíveis evacuações.\", \"citacoes\": [\"K02\"]}",
+        "gabarito": {
+          "resposta": "Prepare documentos e itens essenciais para uma possível saída e acompanhe os comunicados da Defesa Civil.",
+          "citacoes": [
+            "K02"
+          ]
+        },
+        "tempo_segundos": 1.9384,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K02-02",
+        "familia": "enchente",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K02\"]}",
+        "gabarito": {
+          "resposta": "Não. Planeje o deslocamento com antecedência, deixe itens essenciais prontos e siga os comunicados da Defesa Civil.",
+          "citacoes": [
+            "K02"
+          ]
+        },
+        "tempo_segundos": 1.0996,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K03-01",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\"resposta\": \"Aparecimento de rachaduras, inclinação de árvores ou mudanças no terreno podem ser sinais de instabilidade. Evite a área e informe a Defesa Civil.\", \"citacoes\": [\"K03\"]}",
+        "gabarito": {
+          "resposta": "Inclinação e movimento de terra podem sinalizar instabilidade. Afaste-se do local e avise a Defesa Civil.",
+          "citacoes": [
+            "K03"
+          ]
+        },
+        "tempo_segundos": 3.9551,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K03-02",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K03\"]}",
+        "gabarito": {
+          "resposta": "Sim. Rachaduras novas podem indicar instabilidade. Não permaneça na área e comunique a Defesa Civil.",
+          "citacoes": [
+            "K03"
+          ]
+        },
+        "tempo_segundos": 1.0697,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K05-01",
+        "familia": "incendio",
+        "resposta_modelo": "{\"resposta\": \"Não se aproxime\", \"citacoes\": [\"K05\"]}",
+        "gabarito": {
+          "resposta": "Não se aproxime do incêndio. Siga as orientações dos serviços de emergência e use uma rota segura se houver perigo.",
+          "citacoes": [
+            "K05"
+          ]
+        },
+        "tempo_segundos": 1.3257,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K05-02",
+        "familia": "incendio",
+        "resposta_modelo": "{\"resposta\": \"Não se aproxime do foco de incêndio.\", \"citacoes\": [\"K05\"]}",
+        "gabarito": {
+          "resposta": "Evitem se aproximar do foco de fogo e sigam as instruções dos serviços de emergência.",
+          "citacoes": [
+            "K05"
+          ]
+        },
+        "tempo_segundos": 2.21,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K09-01",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K09\"]}",
+        "gabarito": {
+          "resposta": "Não. O indicador da Belka é experimental e não substitui um alerta da Defesa Civil. Verifique os canais oficiais.",
+          "citacoes": [
+            "K09"
+          ]
+        },
+        "tempo_segundos": 1.2125,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K09-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K09\"]}",
+        "gabarito": {
+          "resposta": "Não. A ausência de informação da Belka não elimina riscos. Consulte os canais oficiais da Defesa Civil.",
+          "citacoes": [
+            "K09"
+          ]
+        },
+        "tempo_segundos": 1.5916,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K12-01",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K12\"]}",
+        "gabarito": {
+          "resposta": "Não. Precipitação prevista não confirma enchentes; condições locais e alertas oficiais precisam ser considerados.",
+          "citacoes": [
+            "K12"
+          ]
+        },
+        "tempo_segundos": 1.3025,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K12-02",
+        "familia": "deslizamento",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K12\"]}",
+        "gabarito": {
+          "resposta": "Não. Também é preciso considerar solo, relevo, vulnerabilidade local, histórico e alertas oficiais.",
+          "citacoes": [
+            "K12"
+          ]
+        },
+        "tempo_segundos": 1.2819,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K13-01",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Idosos, crianças, gestantes e pessoas com problemas crônicos\", \"citacoes\": [\"K13\"]}",
+        "gabarito": {
+          "resposta": "Idosos, crianças, gestantes e pessoas com doenças crônicas podem precisar de atenção especial durante ondas de calor.",
+          "citacoes": [
+            "K13"
+          ]
+        },
+        "tempo_segundos": 2.1849,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K13-02",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Sim\", \"citacoes\": [\"K13\"]}",
+        "gabarito": {
+          "resposta": "Sim. Esses grupos, assim como idosos e crianças, podem ser mais vulneráveis ao calor extremo.",
+          "citacoes": [
+            "K13"
+          ]
+        },
+        "tempo_segundos": 1.3775,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K14-01",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Beber bastante água, usar roupas leves e evitar atividades ao ar livre no período mais quente.\", \"citacoes\": [\"K14\"]}",
+        "gabarito": {
+          "resposta": "Beba água regularmente, use roupas leves e, se possível, organize atividades ao ar livre nos horários menos quentes.",
+          "citacoes": [
+            "K14"
+          ]
+        },
+        "tempo_segundos": 2.6997,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K14-02",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Incentivar a hidratação, vestir-se de maneira leve e evitar atividades intensivas durante os períodos mais quentes.\", \"citacoes\": [\"K14\"]}",
+        "gabarito": {
+          "resposta": "Hidratação regular, roupas leves e procura de ambientes frescos ajudam a reduzir a exposição ao calor.",
+          "citacoes": [
+            "K14"
+          ]
+        },
+        "tempo_segundos": 3.018,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K15-01",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K15\"]}",
+        "gabarito": {
+          "resposta": "Não. É preciso avaliar se as temperaturas foram anormais para a época e se o calor persistiu por um período prolongado.",
+          "citacoes": [
+            "K15"
+          ]
+        },
+        "tempo_segundos": 1.0991,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K15-02",
+        "familia": "calor",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K15\"]}",
+        "gabarito": {
+          "resposta": "Não. A caracterização depende do padrão da região, da época do ano e da duração do calor anormal.",
+          "citacoes": [
+            "K15"
+          ]
+        },
+        "tempo_segundos": 1.0678,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K16-01",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"O Cemaden disponibiliza painel de alertas e produtos de previsão de risco geo-hidrológico.\", \"citacoes\": [\"K16\"]}",
+        "gabarito": {
+          "resposta": "O Cemaden disponibiliza painéis de alertas e produtos oficiais de previsão de risco geo-hidrológico.",
+          "citacoes": [
+            "K16"
+          ]
+        },
+        "tempo_segundos": 3.0948,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K16-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"Consulte o canal oficial para verificar se a informação é do Cemaden.\", \"citacoes\": [\"K16\"]}",
+        "gabarito": {
+          "resposta": "Consulte os produtos de monitoramento do Cemaden e os canais da Defesa Civil; os indicadores da Belka são experimentais.",
+          "citacoes": [
+            "K16"
+          ]
+        },
+        "tempo_segundos": 2.3594,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K17-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"O REINDESC\", \"citacoes\": [\"K17\"]}",
+        "gabarito": {
+          "resposta": "O REINDESC, do Cemaden, reúne registros desses eventos; confira cobertura, acesso e qualidade dos dados antes de usá-los.",
+          "citacoes": [
+            "K17"
+          ]
+        },
+        "tempo_segundos": 1.7917,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K17-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não se trata de uma fonte confiável para uso direto em modelos de previsão.\", \"citacoes\": [\"K17\"]}",
+        "gabarito": {
+          "resposta": "É necessário verificar cobertura, acesso e qualidade dos registros antes de utilizá-los como rótulos em pesquisa.",
+          "citacoes": [
+            "K17"
+          ]
+        },
+        "tempo_segundos": 2.4293,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K19-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K19\"]}",
+        "gabarito": {
+          "resposta": "Não. Reanálises meteorológicas históricas não equivalem às previsões efetivamente emitidas no passado.",
+          "citacoes": [
+            "K19"
+          ]
+        },
+        "tempo_segundos": 1.1103,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K19-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K19\"]}",
+        "gabarito": {
+          "resposta": "Não. Dados de reanálise não devem ser apresentados automaticamente como previsões emitidas na época.",
+          "citacoes": [
+            "K19"
+          ]
+        },
+        "tempo_segundos": 1.2152,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K21-01",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"Defesa Civil\", \"citacoes\": [\"K21\"]}",
+        "gabarito": {
+          "resposta": "A trinca pode ser sinal de instabilidade. Afaste-se da área e acione a Defesa Civil.",
+          "citacoes": [
+            "K21"
+          ]
+        },
+        "tempo_segundos": 1.5107,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K21-02",
+        "familia": "oficial",
+        "resposta_modelo": "{\"resposta\": \"A Defesa Civil deve ser acionada.\", \"citacoes\": [\"K21\"]}",
+        "gabarito": {
+          "resposta": "Esses sinais merecem atenção. Evite permanecer na área possivelmente instável e procure a Defesa Civil.",
+          "citacoes": [
+            "K21"
+          ]
+        },
+        "tempo_segundos": 1.8233,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K22-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K22\"]}",
+        "gabarito": {
+          "resposta": "Não. A resolução aproximada do modelo e a vazão prevista não identificam inundação em imóveis específicos.",
+          "citacoes": [
+            "K22"
+          ]
+        },
+        "tempo_segundos": 1.2258,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K22-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"A grade da API GloFAS não representa pequenos córregos urbanos.\", \"citacoes\": [\"K22\"]}",
+        "gabarito": {
+          "resposta": "A grade do modelo pode não representar pequenos córregos urbanos; vazão prevista não comprova alagamento em uma rua.",
+          "citacoes": [
+            "K22"
+          ]
+        },
+        "tempo_segundos": 2.1205,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K23-01",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K23\"]}",
+        "gabarito": {
+          "resposta": "Não. Trata-se de uma previsão de modelo, não de uma medição feita no endereço da pessoa.",
+          "citacoes": [
+            "K23"
+          ]
+        },
+        "tempo_segundos": 1.0995,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-K23-02",
+        "familia": "tecnico",
+        "resposta_modelo": "{\"resposta\": \"Não\", \"citacoes\": [\"K23\"]}",
+        "gabarito": {
+          "resposta": "Não. Esse valor é uma previsão regional do modelo, não uma leitura de sensor no imóvel.",
+          "citacoes": [
+            "K23"
+          ]
+        },
+        "tempo_segundos": 1.1234,
+        "json_valido": true,
+        "recusa_esperada": false,
+        "recusou": false,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-01",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.5493,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-02",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.4115,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-03",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.4718,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-04",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.4069,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-05",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.3868,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      },
+      {
+        "id": "test-novo-recusa-06",
+        "familia": "recusa",
+        "resposta_modelo": "{\"resposta\": \"Não consta na base consultada.\", \"citacoes\": []}",
+        "gabarito": {
+          "resposta": "Não consta na base consultada.",
+          "citacoes": []
+        },
+        "tempo_segundos": 1.303,
+        "json_valido": true,
+        "recusa_esperada": true,
+        "recusou": true,
+        "recusa_correta": true,
+        "citacoes_exatas": true,
+        "citacoes_sem_inventar_ids": true
+      }
+    ]
+  }
+}

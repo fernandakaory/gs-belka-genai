@@ -29,8 +29,14 @@ def train(args):
         a=tokenizer(prefix,add_special_tokens=False)['input_ids'];b=tokenizer(full,add_special_tokens=False)['input_ids'][:args.max_length]
         labels=[-100]*min(len(a),len(b))+b[min(len(a),len(b)):]
         return {'ids':b,'labels':labels}
-    data=[enc(x) for x in read('train')]
-    if not any(any(i!=-100 for i in x['labels']) for x in data):raise ValueError('max_length demasiado pequeno para incluir respostas')
+    data = [enc(x) for x in read('train')]
+    val_data = [enc(x) for x in read('val')]
+
+    if not any(any(i != -100 for i in x['labels']) for x in data):
+        raise ValueError('max_length demasiado pequeno para incluir respostas')
+
+    if not all(any(i != -100 for i in x['labels']) for x in val_data):
+        raise ValueError('Existem exemplos de validacao sem tokens de resposta')
     optimizer=torch.optim.AdamW(model.parameters(),lr=args.lr)
     steps=0; losses=[]
     for ep in range(args.epochs):
@@ -43,7 +49,33 @@ def train(args):
             if (n+1)%args.grad_accum==0 or n==len(data)-1:
                 torch.nn.utils.clip_grad_norm_(model.parameters(),1.0)
                 optimizer.step();optimizer.zero_grad();steps+=1
-        print(f'epoca={ep+1} loss_treino_medio={sum(losses[-len(data):])/len(data):.4f}')
+        train_loss = sum(losses[-len(data):]) / len(data)
+
+        model.eval()
+        val_losses = []
+
+        with torch.no_grad():
+            for item in val_data:
+                ids = torch.tensor(
+                    [item['ids']], dtype=torch.long, device=device
+                )
+                labels = torch.tensor(
+                    [item['labels']], dtype=torch.long, device=device
+                )
+
+                loss = model(input_ids=ids, labels=labels).loss
+                val_losses.append(float(loss.detach().cpu()))
+
+        val_loss = sum(val_losses) / len(val_losses)
+
+        print(
+            f'epoca={ep+1} '
+            f'loss_treino_medio={train_loss:.4f} '
+            f'loss_validacao={val_loss:.4f}'
+        )
+
+        model.train()
+        
     out=ROOT/args.output;out.mkdir(parents=True,exist_ok=True)
     model.save_pretrained(out);tokenizer.save_pretrained(out)
     info={'base_model':model_name,'device':device,'epochs':args.epochs,'rank':args.rank,'lr':args.lr,'grad_accum':args.grad_accum,'steps':steps,'seed':args.seed,'max_length':args.max_length,'loss_treino_final':sum(losses[-len(data):])/len(data),'nota':'Treinamento realizado. Medir qualidade no conjunto de teste separadamente.'}
