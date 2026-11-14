@@ -1,0 +1,112 @@
+id,modo,respondivel,json_valido,citacoes_autorizadas,tem_citacao,recusa,recusa_correta,trecho_gabarito_encontrado,resposta,citacoes,segundos,ferramentas,erro
+T01,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,3.25,,
+T02,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.43,,
+T03,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.45,,
+T04,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.42,,
+T05,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.39,,
+T06,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.4,,
+T07,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.19,,
+T08,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.04,,
+T09,baseline,True,True,True,False,False,False,False,"Não, a Belka é uma empresa de tecnologia e não tem relação com a Defesa Civil.",,0.65,,
+T10,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.39,,
+T11,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,1.4,,
+T12,baseline,True,False,True,False,True,False,False,Não consta na base consultada.,,0.98,,
+T13,baseline,False,False,True,False,True,True,False,Não consta na base consultada.,,0.9,,
+T14,baseline,False,True,True,False,True,True,False,"Desculpe, mas como um assistente de inteligência artificial, eu não tenho acesso a informações futuras ou eventos futuros. Portanto, não posso fornecer a você o número da loteria de amanhã. Recomendo que você verifique em um site oficial da loteria ou em um aplicativo para obter a informação mais atualizada.",,0.88,,
+T15,baseline,False,False,True,False,True,True,False,Não consta na base consultada.,,1.3,,
+T16,baseline,False,True,True,False,True,True,False,Não tenho informações suficientes para responder a essa pergunta.,,0.61,,
+T17,baseline,False,False,True,False,True,True,False,Não consta na base consultada.,,1.3,,
+T01,rag,True,True,True,True,False,False,True,"Se sua rua estiver alagada, siga as orientações abaixo:
+
+1. Evite atravessar a rua alagada, seja de pé ou de veículo.
+2. Busque um local seguro, como um prédio ou casa.
+3. Acompanhe comunicados oficiais sobre a situação.
+4. Evite áreas que possam esconder buracos, correntezas e riscos elétricos.
+5. Se possível, mantenha contato com autoridades locais.
+
+Se possível, informe a situação para que possam tomar medidas preventivas.
+
+Lembre-se, em situações de emergência, é importante seguir as orientações oficiais e a Defesa Civil.",K01;K22;K24,1.34,,
+T02,rag,True,False,True,False,True,False,False,Não consta na base consultada.,,1.47,,
+T03,rag,True,True,True,True,False,False,True,"Períodos de chuva forte podem elevar a instabilidade de encostas. Sinais de deslizamento incluem rachaduras novas no solo ou nas paredes, inclinação de árvores, postes ou muros e movimentos de terra. Afaste-se da área e avise a Defesa Civil se detectar esses sinais de instabilidade. Consulte a Defesa Civil para orientações específicas e seguras.",K04;K03;K21,1.04,,
+T04,rag,True,True,True,True,False,False,True,"Se houver risco de deslizamento por chuva, siga as orientações oficiais da Defesa Civil. Evite áreas de encostas e siga as recomendações locais. Se necessário, busque um lugar seguro e siga as orientações da Defesa Civil.",K04,0.85,,
+T05,rag,True,True,True,True,False,False,True,"Evite se aproximar de focos de fogo e siga orientações dos serviços de emergência. Em situações de perigo iminente, siga a rota segura indicada pelas autoridades.",K05,0.78,,
+T06,rag,True,True,True,True,False,False,False,"Principais ações para se preparar durante onda de calor:
+
+1. Busque sombra e ambientes frescos.
+2. Mantenha hidratação adequada.
+3. Observe pessoas mais vulneráveis, como idosos e crianças.
+4. Busque auxílio de saúde se surgirem sinais de mal-estar.
+5. Antecipe a situação com previsões de temperatura elevada.
+
+Lembre-se de que o diagnóstico de onda de calor exige critério climático local e validação, não apenas um limiar universal.",K15;K11,1.13,,
+T07,rag,True,True,True,True,False,False,True,"O Open-Meteo não mede chuva instantaneamente na sua rua. Os dados fornecidos pela API são previsões de precipitação, não são medidas em tempo real.",K07,0.77,,
+T08,rag,True,True,True,True,False,False,True,"A vazão de rios na Flood API é uma previsão de volume de água em metros cúbicos por segundo, baseada em modelos hidrológicos. É diferente da probabilidade de inundação de uma rua. A API não prevê por si só o alagamento de ruas, e as estimativas de vazão não representam pequenos córregos urbanos ou alagamentos de ruas.",K08;K22;K07,1.01,,
+T09,rag,True,True,True,True,False,False,True,"A Belka é um sistema educativo sobre riscos ambientais, mas não substitui a Defesa Civil. Se observar trincas no solo ou nas paredes em áreas de encosta, ou se sentir incómodo com a água alcançando um nível perigoso, deve-se informar a Defesa Civil. A Belka é uma ferramenta útil para prevenção, mas deve ser usada em conjunto com as orientações oficiais da Defesa Civil.",K09;K21;K02,1.07,,
+T10,rag,True,True,True,True,False,False,True,"Os alertas devem utilizar uma linguagem direta, clara e prática, explicando o que está acontecendo, onde, quando e qual ação segura é recomendada. A comunicação deve manter a ligação com a situação e alertas oficiais da Defesa Civil.",K10;K24;K09,0.9,,
+T11,rag,True,True,True,True,False,False,True,"Sim, um único valor de temperatura elevado não é suficiente para confirmar uma onda de calor. É necessário observar um período prolongado de temperaturas anormais, além de outros fatores climáticos e geográficos. Consulte a Defesa Civil local para orientações específicas.",K15;K11;K06,0.9,,
+T12,rag,True,True,True,True,False,False,False,"A chuva prevista não garante enchentes. É importante considerar a vulnerabilidade local, o histórico de eventos e os alertas oficiais. A Defesa Civil deve ser consultada para orientações específicas.",K02,0.78,,
+T13,rag,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T14,rag,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T15,rag,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T16,rag,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T17,rag,False,True,True,True,True,True,False,"Não posso fornecer um horário exato de um deslizamento, pois isso requer informações meteorológicas e geotécnicas específicas. Consulte a Defesa Civil local para orientações e alertas.",K17;K18,0.83,,
+T01,rag_lora,True,True,True,True,False,False,True,Evite passar pela área alagada. Procure um ponto alto seguro para ficar. Ative o telefone público ou entre em contato com a Defesa Civil.,K01;K24,13.85,,
+T02,rag_lora,True,True,True,True,False,False,True,"Preparar-se para enchentes inclui acompanhamento dos órgãos responsáveis, manuseio cuidadoso de objetos valiosos e evitar passagens pelas áreas alagadas. Evite atravessar ruas alagadas e siga recomendações oficiais.",K02;K01,6.85,,
+T03,rag_lora,True,True,True,True,False,False,True,Observar trincas no solo ou nas paredes em áreas de encosta pode indicar instabilidade. Avise a Defesa Civil se detectar esses sinais.,K03;K21,4.11,,
+T04,rag_lora,True,True,True,True,False,False,True,"Se houver sinais de deslizamento, procure um lugar seguro e siga as orientações oficiais da Defesa Civil.",K04,4.11,,
+T05,rag_lora,True,True,True,True,False,False,True,"Evite áreas de alta combustão, mantenha distância e siga recomendações da Defesa Civil.",K05,3.1,,
+T06,rag_lora,True,True,True,True,False,False,True,"Procure sombra, mantenha hidratação e observe pessoas vulneráveis. Evite atividades físicas extensas se possível. Consulte profissionais de saúde caso sintomas sejam notificados.",K06;K15;K11,5.45,,
+T07,rag_lora,True,True,True,True,False,False,True,"Não, a API Open-Meteo não mede chuva instantaneamente na sua rua. Ela fornece previsões regionais de precipitação.",K07;K08,4.4,,
+T08,rag_lora,True,True,True,True,False,False,True,"Vazão de rios na API Flood é uma estimativa de volume de água fluindo diariamente, não indica se haverá alagamentos específicos de ruas. É uma previsão dos modelos hidrológicos, não dados reais.",K08;K22;K07,6.57,,
+T09,rag_lora,True,True,True,True,False,False,True,"Em caso de emergência, siga as orientações da Defesa Civil. As informações da Belka são experimentais e podem não ser confiáveis em situações de perigo.",K09;K21,4.68,,
+T10,rag_lora,True,True,True,True,False,False,True,Os alertas devem usar linguagem direta e prática para comunicar informações precisas e atualizadas.,K10;K24;K09,3.68,,
+T11,rag_lora,True,True,True,True,False,False,True,Temperaturas elevadas por períodos prolongados são necessárias para diagnosticar onda de calor. Uma única temperatura não é suficiente. Consulte a Defesa Civil se houver preocupações.,K15;K11;K06,5.26,,
+T12,rag_lora,True,True,True,True,False,False,False,"Uma previsão de chuva não garante enchentes. Avalie vulnerabilidades locais, acompanhamento da Defesa Civil e preparação adequada antes de tomar decisões.",K02;K07,5.3,,
+T13,rag_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T14,rag_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T15,rag_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T16,rag_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,,
+T17,rag_lora,False,True,True,True,True,True,False,Não posso determinar o momento exato de um deslizamento sem informações específicas sobre a localização e condições geográficas. Consulte a Defesa Civil para orientações.,K04;K17;K18,4.94,,
+T01,agent,True,True,True,True,False,False,True,"Se sua rua estiver alagada, siga as orientações abaixo:
+
+1. Evite atravessar a rua alagada, seja de pé ou de veículo.
+2. Busque um local seguro, como um prédio ou casa.
+3. Acompanhe comunicados oficiais sobre a situação.
+4. Evite áreas que possam ter buracos, correntezas ou riscos elétricos.
+5. Se possível, mantenha contato com autoridades locais.
+
+Se a situação se agravar, siga as orientações da Defesa Civil.",K01;K22;K24,1.16,rag_search,
+T02,agent,True,True,True,True,False,False,True,"Para preparação para enchentes, siga as orientações da Defesa Civil e prepare itens essenciais. Evite ruas alagadas e siga comunicados oficiais. Considera vulnerabilidade local, hidrologia, solo e alertas oficiais para avaliações confiáveis. Não espere a água alcançar um nível perigoso para procurar segurança.",K01;K02,0.96,rag_search,
+T03,agent,True,True,True,True,False,False,True,"Períodos de chuva forte podem elevar a instabilidade de encostas. Se houver sinais de deslizamento, busque um lugar seguro e siga as orientações oficiais da Defesa Civil. Se observar trincas no solo ou nas paredes em áreas de encosta, acione a Defesa Civil. Mantenha-se em contato com a Defesa Civil em caso de alertas ou alertas de risco.",K04;K03;K21,1.02,rag_search,
+T04,agent,True,True,False,True,False,False,True,"Se houver risco de deslizamento por chuva, siga as orientações da Defesa Civil. Busque um local seguro e siga as recomendações locais. Evite áreas de risco e mantenha contato com autoridades locais.",K04;K24,0.86,rag_search,
+T05,agent,True,True,True,True,False,False,True,"Evite se aproximar de focos de fogo e siga orientações dos serviços de emergência. Em situações de perigo iminente, afaste-se pela rota segura indicada pelas autoridades.",K05,0.86,rag_search,
+T06,agent,True,True,False,True,False,False,False,"Para se preparar durante onda de calor, procure sombra e ambientes frescos, mantenha hidratação e observe pessoas mais vulneráveis, especialmente idosos e crianças. Busque auxílio de saúde diante de sinais de mal-estar importante. Além disso, é recomendável planejar atividades ao ar livre nos horários menos quentes e beber água regularmente.",K11;K14,0.98,rag_search,
+T07,agent,True,True,True,True,False,False,True,"O Open-Meteo não mede chuva instantaneamente na sua rua. As informações disponíveis são previsões de precipitação, temperatura e umidade do solo, mas não são medidas em tempo real.",K07,0.77,rag_search,
+T08,agent,True,True,True,True,False,False,True,"A vazão de rios na Flood API é uma previsão de volume de água em metros cúbicos por segundo, baseada em modelos hidrológicos. É uma estimativa de vazão do GloFAS em resolução de 5 km, mas não é a mesma coisa que a probabilidade de inundação de uma rua. É uma previsão de modelos, não uma medição instantânea da rua.",K08;K22;K07,1.05,rag_search,
+T09,agent,True,True,True,True,False,False,True,"A Belka é um sistema educativo sobre riscos ambientais, não substitui a Defesa Civil. Se detectar sinais de instabilidade, como rachaduras novas, inclinação de árvores ou movimentos de terra, é recomendável informar a Defesa Civil. A Defesa Civil é responsável por orientações e alertas oficiais em situações de risco.",K09;K21;K02,1.08,rag_search,
+T10,agent,True,True,True,True,False,False,True,"Os alertas devem utilizar uma linguagem direta, prática e direcionada, sem exageros. Evite termos técnicos ou complexos que não possam ser compreendidos facilmente. Manter a comunicação com a situação e alertas oficiais é importante, mas não substitui a orientação da Defesa Civil.",K10;K24;K09,0.98,rag_search,
+T11,agent,True,True,True,True,False,False,True,"Ocorrências de onda de calor são caracterizadas por temperaturas anormais elevadas por um período prolongado, não apenas por um único valor de temperatura. É recomendável observar a previsão climática local para identificar possíveis ondas de calor. Além disso, é importante manter-se hidratado, procurar sombra e ambientes frescos, e evitar atividades físicas intensas em dias de calor intenso.",K15;K11;K06,1.06,rag_search,
+T12,agent,True,True,True,True,False,False,False,"A chuva prevista não garante enchentes. É necessário considerar vulnerabilidade local, histórico, solo e alertas oficiais para avaliar riscos. A Defesa Civil deve ser informada e preparada para eventualidade.",K02,0.81,rag_search,
+T13,agent,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T14,agent,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T15,agent,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T16,agent,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T17,agent,False,True,True,True,True,True,False,Não posso fornecer um horário exato de um deslizamento. A Defesa Civil deve ser informada sobre a instabilidade local. Evite a área e siga as orientações oficiais.,K04;K17;K18,0.88,rag_search,
+T01,agent_lora,True,True,True,True,False,False,True,Evite passar pela área alagada. Procure um ponto alto seguro para ficar. Ative o telefone público ou entre em contato com a Defesa Civil.,K01;K24,4.61,rag_search,
+T02,agent_lora,True,True,True,True,False,False,True,Preparar-se para enchentes inclui:,K01;K02,2.38,rag_search,
+T03,agent_lora,True,True,True,True,False,False,True,Observação de trincas no solo ou nas paredes em áreas de encosta pode indicar instabilidade. Evite a área e avise a Defesa Civil se detectar esses sinais.,K03;K21,4.56,rag_search,
+T04,agent_lora,True,True,False,True,False,False,True,Seja cauteloso com a previsão de chuva. Busque um local seguro e siga as orientações da Defesa Civil.,K04;K24,4.46,rag_search,
+T05,agent_lora,True,True,True,True,False,False,True,"Evite áreas de alta combustão, mantenha distância e siga recomendações da Defesa Civil.",K05,3.31,rag_search,
+T06,agent_lora,True,True,False,True,False,False,False,"Procure sombra, mantenha hidratação e evite atividades físicas intensas durante o dia se possível. Evite exposição prolongada à luz solar forte. Use roupas leves e calçados confortáveis. Planeje atividades ao ar livre nos períodos menos quentes do dia. Consulte profissionais de saúde caso sintomas de mal-estar apareçam.",K11;K14,8.31,rag_search,
+T07,agent_lora,True,True,False,True,False,False,True,"Não, a API Open-Meteo não mede chuva instantaneamente na sua rua. Ela fornece previsões regionais de precipitação, mas não realiza leituras instantâneas.",K07;K08;K19,5.25,rag_search,
+T08,agent_lora,True,True,False,True,False,False,True,"A vazão de rios na Flood API é uma estimativa de volume de água fluindo diariamente, não representa a probabilidade de inundação de uma rua. É uma previsão de modelos hidrológicos, não medidas instantâneas.",K08;K22;K07;K19,6.71,rag_search,
+T09,agent_lora,True,True,False,True,False,False,True,"Em caso de incerteza, siga orientações da Defesa Civil. As informações da Belka são experimentais e não substituem alertas oficiais.",K09;K21;K02;K03,5.39,rag_search,
+T10,agent_lora,True,True,True,True,False,False,True,"Os alertas devem usar linguagem direta e prática, explicando o que está acontecendo, onde, por quanto tempo e qual ação segura é recomendada.",K10;K24,4.52,rag_search,
+T11,agent_lora,True,True,True,True,False,False,True,Um único valor de temperatura não confirma o fenômeno. É necessário avaliar outros fatores climáticos e períodos de tempo. Consulte a Defesa Civil para orientações específicas.,K15;K11,5.09,rag_search,
+T12,agent_lora,True,True,True,True,False,False,False,"Uma previsão de chuva não garante enchentes. Avalie vulnerabilidades locais, acompanhamento da Defesa Civil e preparação adequada. Evite se aproximar de áreas suscetíveis a deslizamentos.",K02;K07,5.51,rag_search,
+T13,agent_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T14,agent_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T15,agent_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T16,agent_lora,False,True,True,False,True,True,False,Não consta na base consultada.,,0.0,rag_search,
+T17,agent_lora,False,True,False,True,False,False,False,Observação dos sinais mencionados pode ajudar a identificar possíveis deslizamentos. Evite a área e procure ajuda da Defesa Civil se detectar qualquer mudança sutil no solo ou estrutura. Consulte a definição mais recente do CEMADEN sobre riscos de deslizamento para informações precisas.,K03,6.95,rag_search,

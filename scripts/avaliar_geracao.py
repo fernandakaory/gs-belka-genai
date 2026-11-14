@@ -7,6 +7,24 @@ from app.service import answer
 from app.knowledge import search
 ROOT=Path(__file__).resolve().parents[1]
 
+def detectar_recusa(resposta):
+    texto = resposta.lower().strip()
+
+    expressoes = [
+        'não consta',
+        'não posso fornecer',
+        'não tenho acesso',
+        'não tenho informações',
+        'não é possível determinar',
+        'não posso determinar',
+        'não é possível prever',
+        'não posso prever',
+        'não sei informar',
+        'não tenho como saber',
+    ]
+
+    return any(expressao in texto for expressao in expressoes)
+
 async def run(args):
     cases=json.loads((ROOT/'avaliacao/casos_teste.json').read_text(encoding='utf8'))
     if args.limit:cases=cases[:args.limit]
@@ -18,8 +36,7 @@ async def run(args):
                 t=time.perf_counter()
                 response=await answer(case['pergunta'],mode=mode,demo=False,enable_weather=args.weather)
                 row.update({'json_valido':response['json_valido_modelo'],'citacoes_autorizadas':all(c in {h['id'] for h in search(case['pergunta'])}|{'WEATHER'} for c in response['citacoes']),
-                  'tem_citacao':bool(response['citacoes']),'recusa':'não consta' in response['resposta'].lower(),
-                  'recusa_correta':not case['respondivel'] and 'não consta' in response['resposta'].lower(),
+                  'tem_citacao':bool(response['citacoes']),'recusa': detectar_recusa(response['resposta']),'recusa_correta': (not case['respondivel']and detectar_recusa(response['resposta'])),
                   'trecho_gabarito_encontrado':bool(set(case['gabarito_trechos']) & set(response['citacoes'])),
                   'resposta':response['resposta'],'citacoes':';'.join(response['citacoes']),'segundos':round(time.perf_counter()-t,2),
                   'ferramentas':';'.join(response['ferramentas']),'erro':''})
@@ -27,7 +44,7 @@ async def run(args):
             rows.append(row)
             print(mode,case['id'],'ERRO' if row.get('erro') else 'OK')
     out=ROOT/'avaliacao';out.mkdir(exist_ok=True)
-    (out/'resultados_comparacao_reais.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+    (out/'resultados_comparacao_reais.json').write_text(json.dumps(rows, ensure_ascii=False, indent=2),encoding='utf-8')
     columns=['id','modo','respondivel','json_valido','citacoes_autorizadas','tem_citacao','recusa','recusa_correta','trecho_gabarito_encontrado','resposta','citacoes','segundos','ferramentas','erro']
     with (out/'resultados_comparacao_reais.csv').open('w',newline='',encoding='utf8') as f:
         w=csv.DictWriter(f,fieldnames=columns);w.writeheader();w.writerows(rows)
@@ -35,7 +52,7 @@ async def run(args):
     for mode in args.modes:
         sub=[x for x in rows if x['modo']==mode];valid=[x for x in sub if not x.get('erro')]
         summaries[mode]={'casos':len(sub),'executados':len(valid),'falhas_execucao':len(sub)-len(valid),'json_valido_taxa':round(sum(bool(x['json_valido']) for x in valid)/len(valid),3) if valid else None,'recusas_corretas':sum(bool(x['recusa_correta']) for x in valid),'gabarito_citado':sum(bool(x['trecho_gabarito_encontrado']) for x in valid),'nota':'citação não prova correção semântica; revisar manualmente'}
-    (out/'placar_comparacao_reais.json').write_text(json.dumps(summaries,ensure_ascii=False,indent=2))
+    (out/'placar_comparacao_reais.json').write_text(json.dumps(summaries, ensure_ascii=False, indent=2),encoding='utf-8')
     print(json.dumps(summaries,indent=2,ensure_ascii=False))
     print('REVISÃO MANUAL: avaliar correção, apoio em fontes, alucinação e documentar cinco erros reais.')
 

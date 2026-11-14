@@ -1,0 +1,47 @@
+{
+  "baseline": {
+    "casos": 17,
+    "executados": 17,
+    "falhas_execucao": 0,
+    "json_valido_taxa": 0.176,
+    "recusas_corretas": 5,
+    "gabarito_citado": 0,
+    "nota": "citação não prova correção semântica; revisar manualmente"
+  },
+  "rag": {
+    "casos": 17,
+    "executados": 17,
+    "falhas_execucao": 0,
+    "json_valido_taxa": 0.941,
+    "recusas_corretas": 5,
+    "gabarito_citado": 9,
+    "nota": "citação não prova correção semântica; revisar manualmente"
+  },
+  "rag_lora": {
+    "casos": 17,
+    "executados": 17,
+    "falhas_execucao": 0,
+    "json_valido_taxa": 1.0,
+    "recusas_corretas": 5,
+    "gabarito_citado": 11,
+    "nota": "citação não prova correção semântica; revisar manualmente"
+  },
+  "agent": {
+    "casos": 17,
+    "executados": 17,
+    "falhas_execucao": 0,
+    "json_valido_taxa": 1.0,
+    "recusas_corretas": 5,
+    "gabarito_citado": 10,
+    "nota": "citação não prova correção semântica; revisar manualmente"
+  },
+  "agent_lora": {
+    "casos": 17,
+    "executados": 17,
+    "falhas_execucao": 0,
+    "json_valido_taxa": 1.0,
+    "recusas_corretas": 4,
+    "gabarito_citado": 10,
+    "nota": "citação não prova correção semântica; revisar manualmente"
+  }
+}
