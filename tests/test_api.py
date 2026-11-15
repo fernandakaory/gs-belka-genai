@@ -3,6 +3,7 @@ from app.main import app
 from app.knowledge import search
 
 client=TestClient(app)
+# Confere as rotas básicas, as respostas de demonstração e a busca.
 def test_health():assert client.get('/health').status_code==200
 def test_sources():assert client.get('/api/fontes').json()['quantidade_trechos']>=10
 def test_refusal_unknown():

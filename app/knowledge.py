@@ -5,10 +5,13 @@ import unicodedata
 from collections import Counter
 from pathlib import Path
 
+# Carrega os trechos, as fontes e as palavras ignoradas na busca.
 ROOT = Path(__file__).resolve().parents[1]
 CHUNKS = [json.loads(line) for line in (ROOT / 'base/trechos.jsonl').read_text(encoding='utf8').splitlines() if line.strip()]
 SOURCES = {s['id']: s for s in json.loads((ROOT / 'base/fontes.json').read_text(encoding='utf8'))}
 STOP = {'sao','paulo','amanha','minuto','exato','exata','pessoal','prefeito','vizinho','casa','numero','endereco','rua','a','as','o','os','de','da','do','dos','das','em','no','na','um','uma','e','ou','para','por','com','que','se','qual','como','eu','me','minha','meu','tem','sobre','ao','aos','mais','pode','onde','nos','nas','essa','esse','ser','estou'}
+
+# Prepara as palavras para comparar perguntas e trechos da base.
 def tokenize(s):
     s = ''.join(c for c in unicodedata.normalize('NFKD',s.lower()) if not unicodedata.combining(c))
     tokens=[]
@@ -20,9 +23,11 @@ def tokenize(s):
         tokens.append(t)
     return tokens
 
+# Conta as palavras de cada trecho e em quantos trechos elas aparecem.
 CORPUS=[Counter(tokenize(c['topicos']+' '+c['texto'])) for c in CHUNKS]
 DOC_FREQ=Counter(t for bag in CORPUS for t in bag)
 
+# Calcula a pontuação dos trechos e retorna os melhores acima do limite.
 def search(question, k=3, threshold=0.20):
     query=Counter(tokenize(question))
     if not query:

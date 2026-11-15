@@ -1,7 +1,8 @@
-"""Inferência real com adapter PEFT, carregado uma vez por processo (não simulada)."""
+"""Gera respostas com o modelo e o ajuste LoRA treinado."""
 import asyncio, os
 from functools import lru_cache
 
+# Mantém o modelo carregado para reutilizá-lo nas próximas perguntas.
 @lru_cache(maxsize=1)
 def load():
     import torch
@@ -15,6 +16,7 @@ def load():
     model=PeftModel.from_pretrained(model,adapter).to(device).eval()
     return model,tok,device
 
+# Prepara a conversa e retorna somente a resposta nova do modelo.
 def _generate(system,user):
     import torch
     model,tok,device=load()
@@ -23,5 +25,6 @@ def _generate(system,user):
     with torch.no_grad():output=model.generate(**inputs,max_new_tokens=300,do_sample=False,pad_token_id=tok.eos_token_id)
     return tok.decode(output[0][inputs['input_ids'].shape[-1]:],skip_special_tokens=True)
 
+# Executa a geração sem bloquear as outras tarefas da API.
 async def lora_generate(system,user):
     return await asyncio.to_thread(_generate,system,user)

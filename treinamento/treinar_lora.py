@@ -1,12 +1,14 @@
-"""Fine-tuning supervisionado LoRA: Qwen2.5-1.5B-Instruct, sem carregar test."""
+"""Treina o ajuste LoRA usando os conjuntos de treino e validação."""
 import argparse, json, os, random
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 
+# Lê os exemplos do conjunto solicitado.
 def read(split):
     return [json.loads(s) for s in (ROOT/f'treinamento/{split}.jsonl').read_text(encoding='utf8').splitlines() if s]
 
+# Prepara o modelo, o dispositivo e os parâmetros do ajuste LoRA.
 def train(args):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -23,6 +25,7 @@ def train(args):
     model=get_peft_model(model,LoraConfig(r=args.rank,lora_alpha=args.rank*2,lora_dropout=0.05,bias='none',task_type='CAUSAL_LM',target_modules=['q_proj','v_proj']))
     model.train();model.print_trainable_parameters()
 
+    # Prepara os textos para que o treino considere apenas a resposta esperada.
     def enc(example):
         msgs=example['mensagens'];prefix=tokenizer.apply_chat_template(msgs[:2],tokenize=False,add_generation_prompt=True)
         full=tokenizer.apply_chat_template(msgs,tokenize=False,add_generation_prompt=False)
@@ -37,6 +40,7 @@ def train(args):
 
     if not all(any(i != -100 for i in x['labels']) for x in val_data):
         raise ValueError('Existem exemplos de validacao sem tokens de resposta')
+    # Atualiza os parâmetros ao longo das épocas de treinamento.
     optimizer=torch.optim.AdamW(model.parameters(),lr=args.lr)
     steps=0; losses=[]
     for ep in range(args.epochs):
@@ -51,6 +55,7 @@ def train(args):
                 optimizer.step();optimizer.zero_grad();steps+=1
         train_loss = sum(losses[-len(data):]) / len(data)
 
+        # Mede o erro no conjunto de validação sem alterar os parâmetros.
         model.eval()
         val_losses = []
 
@@ -76,12 +81,14 @@ def train(args):
 
         model.train()
         
+    # Salva o ajuste treinado e o resumo da execução.
     out=ROOT/args.output;out.mkdir(parents=True,exist_ok=True)
     model.save_pretrained(out);tokenizer.save_pretrained(out)
     info={'base_model':model_name,'device':device,'epochs':args.epochs,'rank':args.rank,'lr':args.lr,'grad_accum':args.grad_accum,'steps':steps,'seed':args.seed,'max_length':args.max_length,'loss_treino_final':sum(losses[-len(data):])/len(data),'nota':'Treinamento realizado. Medir qualidade no conjunto de teste separadamente.'}
     (out/'training_run.json').write_text(json.dumps(info,indent=2,ensure_ascii=False))
     print('Adapter salvo em',out)
 
+# Recebe as configurações de treinamento pelo terminal.
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('--model',default='Qwen/Qwen2.5-1.5B-Instruct');p.add_argument('--output',default='outputs/belka-lora')

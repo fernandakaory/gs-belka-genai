@@ -2,6 +2,8 @@ from datetime import datetime, timezone
 import httpx
 
 URL='https://api.open-meteo.com/v1/forecast'
+
+# Valida as coordenadas e consulta as próximas 72 horas no Open-Meteo.
 async def forecast(latitude:float, longitude:float):
     if not (-90 <= latitude <= 90 and -180 <= longitude <= 180):
         raise ValueError('Coordenadas inválidas')
@@ -11,6 +13,8 @@ async def forecast(latitude:float, longitude:float):
         resp=await client.get(URL,params=params)
         resp.raise_for_status()
         data=resp.json()
+
+    # Resume chuva e temperatura e mantém a origem e o horário da consulta.
     h=data['hourly']; rainfall=h['precipitation']; temp=h['temperature_2m']
     return {'fonte':'Open-Meteo Forecast API','url':URL, 'obtido_em_utc':datetime.now(timezone.utc).isoformat(),
             'timezone':data.get('timezone'),'latitude_consultada':latitude,'longitude_consultada':longitude,

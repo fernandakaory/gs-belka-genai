@@ -50,6 +50,7 @@ entradas = tokenizer(
 ).to("cuda")
 
 
+# Gera a resposta sem atualizar os parâmetros do modelo.
 with torch.no_grad():
     saida = modelo.generate(
     **entradas,

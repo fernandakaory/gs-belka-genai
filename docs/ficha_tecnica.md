@@ -12,12 +12,20 @@
 
 **Saída:** JSON com `resposta`, `citacoes`, `configuracao`, `fundamentada`, `aviso`.
 
-**Modelo:** Qwen2.5 1.5B via Ollama, configurável; inferência local, não treinamento de pesos. A especialização adotada é um agente com validação determinística pós-geração.
+**Modelo:** Qwen2.5 1.5B via Ollama nos modos originais e via Transformers/PEFT nos modos com LoRA. O ajuste LoRA já foi treinado; o agente escolhe ferramentas por regras da pergunta.
 
-**Comparação:** (A) baseline sem contexto, (B) RAG lexical simples, (C) agente com RAG + guardrails. Mesma LLM e mesmas perguntas nas três modalidades.
+**Comparação:** baseline, RAG simples, RAG + LoRA, agente + RAG e agente + RAG + LoRA. São 17 perguntas por modo. O modelo base tem o mesmo nome, mas Ollama e PEFT usam programas diferentes para gerar respostas.
 
 **Pontos que NÃO estão validados:** eficácia de prevenção, veracidade de todas as respostas, previsão probabilística de eventos, adequação jurídica para operação pública.
 
-**ODS:** ODS 11 e 13 são conexões propostas; avaliação de impacto ainda é futura.
+**ODS:** meta 11.5, pelo apoio informativo à prevenção de desastres; meta 13.3, pela educação sobre riscos climáticos. Não foi medida redução de danos ou melhora de compreensão pelos usuários.
+
+**Impacto a medir:** compreensão das orientações e facilidade de encontrar informação com fonte, em testes futuros com usuários.
+
+**Repositório:** https://github.com/fernandakaory/gs-belka-genai — acesso público ainda precisa ser confirmado.
+
+**Vídeo:** [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
+
+**MVP público:** URL ainda pendente.
 
 **Integrantes:** Fernanda Kaory Saito — RM 551104; João Pedro Borsato — RM 550294; Maria Fernanda Camargo — RM 97956; Pedro Lucas Nunes — RM 550366; Vinícius Bernardino — RM 97888. Confirmar a composição antes da entrega.

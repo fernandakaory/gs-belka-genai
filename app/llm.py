@@ -3,6 +3,7 @@ import os
 import httpx
 
 
+# Define o formato JSON esperado na resposta do modelo.
 RESPONSE_SCHEMA = {
     "type": "object",
     "properties": {
@@ -20,6 +21,7 @@ RESPONSE_SCHEMA = {
 }
 
 
+# Envia as mensagens ao Ollama local e devolve o texto gerado.
 async def ollama_generate(system: str, user: str):
     url = os.getenv(
         "OLLAMA_URL", "http://localhost:11434"

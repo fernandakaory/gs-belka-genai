@@ -3,6 +3,7 @@ from pathlib import Path
 from app.knowledge import search
 ROOT=Path(__file__).resolve().parents[1]
 
+# Compara os trechos encontrados com o gabarito e conta buscas sem resposta.
 def evaluate(threshold=0.20):
     cases=json.loads((ROOT/'avaliacao/casos_teste.json').read_text(encoding='utf8'))
     positives=[c for c in cases if c['respondivel']]
@@ -18,5 +19,6 @@ def evaluate(threshold=0.20):
             'recall_at_1':round(counts[1]/len(positives),3),'recall_at_3':round(counts[3]/len(positives),3),
             'falsos_positivos_nao_consta':false_positives}
 
+# Mostra os resultados para diferentes limites de pontuação.
 if __name__=='__main__':
     print(json.dumps([evaluate(t) for t in (0.2,0.5,1.0,1.5,2.0)],indent=2,ensure_ascii=False))

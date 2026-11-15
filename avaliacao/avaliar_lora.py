@@ -16,6 +16,7 @@ MAX_NEW_TOKENS = 220
 RECUSA = "Não consta na base consultada."
 
 
+# Carrega os casos reservados para teste.
 def ler_testes():
     with TEST_PATH.open(encoding="utf-8") as arquivo:
         casos = [json.loads(linha) for linha in arquivo if linha.strip()]
@@ -24,6 +25,7 @@ def ler_testes():
     return casos
 
 
+# Confere o JSON, as citações e a decisão de recusar em relação ao gabarito.
 def avaliar_resposta(texto, referencia):
     try:
         objeto = json.loads(texto)
@@ -50,6 +52,7 @@ def avaliar_resposta(texto, referencia):
     }
 
 
+# Gera uma resposta e mede o tempo gasto pelo modelo.
 def gerar(modelo, tokenizer, mensagens, device):
     texto = tokenizer.apply_chat_template(
         mensagens, tokenize=False, add_generation_prompt=True
@@ -74,6 +77,7 @@ def gerar(modelo, tokenizer, mensagens, device):
     return tokenizer.decode(tokens, skip_special_tokens=True).strip(), segundos
 
 
+# Avalia todos os casos e reúne as medidas da configuração.
 def executar_configuracao(nome, modelo, tokenizer, casos, device):
     saidas = []
     modelo.eval()
@@ -119,6 +123,7 @@ def executar_configuracao(nome, modelo, tokenizer, casos, device):
     return {"resumo": resumo, "casos": saidas}
 
 
+# Compara o modelo original e o modelo com LoRA usando os mesmos casos.
 def main():
     casos = ler_testes()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

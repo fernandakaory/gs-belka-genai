@@ -4,6 +4,7 @@ from app.tools import select_tools,city_from_text
 from app.service import decode, REFUSAL
 ROOT=Path(__file__).resolve().parents[1]
 
+# Confere quando o agente deve consultar a previsão meteorológica.
 def test_agent_chooses_weather_when_city_and_forecast():
     assert 'weather_forecast' in select_tools('Vai chover amanhã em São Paulo?')
 
@@ -13,6 +14,7 @@ def test_agent_avoids_weather_without_location():
 def test_cities_not_invented():
     assert city_from_text('Minha rua') == (None,None)
 
+# Verifica a recusa de citações desconhecidas e a aceitação das permitidas.
 def test_invalid_citation_refused():
     r=decode(json.dumps({'resposta':'Tudo bem','citacoes':['K999']}),{'K01'},'agent',[],None,[])
     assert r['resposta']==REFUSAL and not r['json_valido_modelo']
@@ -21,10 +23,11 @@ def test_valid_agent_citation():
     r=decode(json.dumps({'resposta':'Evite alagamentos','citacoes':['K01']}),{'K01'},'agent',[],None,[])
     assert r['fundamentada']
 
+# Confere o formato dos exemplos e evita IDs repetidos entre os conjuntos.
 def test_dataset_split_and_integrity():
     all_ids=[]
     for split in ('train','val','test'):
-        samples=[json.loads(x) for x in (ROOT/f'treinamento/{split}.jsonl').read_text().splitlines()]
+        samples=[json.loads(x) for x in (ROOT/f'treinamento/{split}.jsonl').read_text(encoding='utf-8').splitlines()]
         assert len(samples)>=20
         all_ids += [x['id'] for x in samples]
         for sample in samples:

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" pages="6">
+  <diagram name="Respostas da IA" id="KOQ6Q4FRPWOsc1GUGUTZ">
+    <mxGraphModel dx="1372" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Belka Gen AI" vertex="1">
+          <mxGeometry height="45" width="680" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Interface HTML local Pergunta, modo e op??o de demonstra??o" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="FastAPI ? POST /api/perguntar Valida os campos da requisi??o" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="baseline" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="baseline Sem trechos de contexto" vertex="1">
+          <mxGeometry height="70" width="240" x="100" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="rag" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="rag / rag_lora Busca at? 3 trechos por palavras" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="agent" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="agent / agent_lora Busca at? 4 trechos; escolhe ferramentas por regras" vertex="1">
+          <mxGeometry height="70" width="280" x="920" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="base" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Base local fontes.json e trechos.jsonl 9 fontes e 24 trechos" vertex="1">
+          <mxGeometry height="90" width="270" x="30" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="weather" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Open-Meteo Consulta se houver pedido de previs?o, cidade cadastrada e demo desativado" vertex="1">
+          <mxGeometry height="95" width="280" x="1250" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Servi?o de respostas Re?ne pergunta, instru??es, trechos e previs?o dispon?vel" vertex="1">
+          <mxGeometry height="90" width="280" x="500" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="early" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#f8cecc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Sem evid?ncias nos modos com contexto Retorna recusa antes de chamar o modelo" vertex="1">
+          <mxGeometry height="85" width="280" x="930" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="demo" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Demonstra??o Copia o primeiro trecho dispon?vel; sem modelo. Baseline: mensagem de demonstra??o." vertex="1">
+          <mxGeometry height="95" width="280" x="930" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="baseline / rag / agent Qwen2.5 1.5B via Ollama" vertex="1">
+          <mxGeometry height="70" width="280" x="300" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="lora" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="rag_lora / agent_lora Qwen2.5 1.5B + LoRA treinado Transformers e PEFT" vertex="1">
+          <mxGeometry height="85" width="300" x="680" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="adapter" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Ajuste LoRA salvo outputs/belka-lora" vertex="1">
+          <mxGeometry height="70" width="250" x="1100" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="check" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Verifica??o da sa?da L? JSON e confere cita??es; aplica regras adicionais nos modos agente" vertex="1">
+          <mxGeometry height="90" width="300" x="500" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="out" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Retorno JSON para a interface Resposta ou recusa, cita??es e avisos" vertex="1">
+          <mxGeometry height="80" width="300" x="500" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Escopo: execu??o local implementada. N?o inclui publica??o, integra??es com outras disciplinas ou recursos futuros. As verifica??es de formato e IDs n?o comprovam a corre??o do conte?do." vertex="1">
+          <mxGeometry height="110" width="440" x="1040" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="api" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="baseline" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="rag" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="agent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="base" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="rag" value="trechos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="base" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="agent" value="trechos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="weather" value="quando aplic?vel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="weather" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="previs?o ou erro de consulta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="baseline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="rag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="early" value="sem trechos nem previs?o; exceto baseline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="early" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="demo" value="demo ativo e sem recusa antecipada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="demo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="ollama" value="demo desativado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="lora" value="demo desativado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="adapter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="lora" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="ollama" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="lora" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Consulta direta de clima" id="R8ROHO0rRq5juCYzzDIc">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1700" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wtitle" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Consulta direta de previs?o ? implementada" vertex="1">
+          <mxGeometry height="50" width="500" x="100" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wui" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Interface HTML local Latitude e longitude informadas" vertex="1">
+          <mxGeometry height="70" width="280" x="230" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="wapi" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="FastAPI ? GET /api/clima Valida as coordenadas" vertex="1">
+          <mxGeometry height="70" width="280" x="230" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="wopen" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Open-Meteo Forecast API Previs?o das pr?ximas 72 horas" vertex="1">
+          <mxGeometry height="80" width="280" x="230" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="wsummary" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Resumo de chuva e temperatura Fonte e hor?rio da consulta; erro se indispon?vel" vertex="1">
+          <mxGeometry height="90" width="280" x="230" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="wout" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Exibi??o na interface Sem chamar o modelo de linguagem" vertex="1">
+          <mxGeometry height="80" width="280" x="230" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="wui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wapi" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="wapi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wopen" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="wopen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wsummary" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="wsummary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wout" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Respostas da IA" id="JfvqVvV7jbNpMZ-5Qe2P">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1700" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Belka Gen AI " vertex="1">
+          <mxGeometry height="45" width="680" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;spacing=8;labelBorderColor=none;" value="Interface&#xa;Pergunta, modo e opcao de demonstracao" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="FastAPI - POST /api/perguntar&#xa;Valida os campos da requisicao" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="baseline" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="baseline&#xa;Sem trechos de contexto" vertex="1">
+          <mxGeometry height="70" width="240" x="100" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="rag" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="rag / rag_lora&#xa;Busca ate 3 trechos por palavras" vertex="1">
+          <mxGeometry height="70" width="280" x="500" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="agent" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="agent / agent_lora&#xa;Busca ate 4 trechos&#xa;Escolhe ferramentas por regras" vertex="1">
+          <mxGeometry height="70" width="280" x="920" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="base" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Base local&#xa;fontes.json e trechos.jsonl&#xa;9 fontes e 24 trechos" vertex="1">
+          <mxGeometry height="90" width="270" x="30" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="weather" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Open-Meteo&#xa;Consulta com pedido de previsao, cidade cadastrada e demo desativado" vertex="1">
+          <mxGeometry height="95" width="280" x="1250" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Servico de respostas&#xa;Reune pergunta, instrucoes, trechos e previsao disponivel" vertex="1">
+          <mxGeometry height="90" width="280" x="500" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="early" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Sem evidencias nos modos com contexto&#xa;Retorna recusa sem chamar o modelo" vertex="1">
+          <mxGeometry height="85" width="280" x="930" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="demo" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Demonstracao&#xa;Copia o primeiro trecho, sem modelo&#xa;Baseline: mensagem de demonstracao" vertex="1">
+          <mxGeometry height="95" width="280" x="930" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="baseline / rag / agent&#xa;Qwen2.5 1.5B via Ollama" vertex="1">
+          <mxGeometry height="70" width="280" x="300" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="lora" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="rag_lora / agent_lora&#xa;Qwen2.5 1.5B com LoRA treinado&#xa;Transformers e PEFT" vertex="1">
+          <mxGeometry height="85" width="300" x="680" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="adapter" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Ajuste LoRA salvo&#xa;outputs/belka-lora" vertex="1">
+          <mxGeometry height="70" width="250" x="1100" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="check" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Verificacao da saida&#xa;Confere JSON e citacoes&#xa;Regras adicionais nos modos agente" vertex="1">
+          <mxGeometry height="90" width="300" x="500" y="985" as="geometry" />
+        </mxCell>
+        <mxCell id="out" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#64748b;fontSize=12;spacing=8;align=center;verticalAlign=middle;fontFamily=Helvetica;fontColor=default;labelBorderColor=none;" value="Retorno JSON para a interface&#xa;Resposta ou recusa, citacoes e avisos" vertex="1">
+          <mxGeometry height="80" width="300" x="500" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Escopo: componentes locais implementados.&#xa;O diagrama nao inclui recursos futuros ou outras disciplinas.&#xa;Formato e IDs validos nao garantem conteudo correto." vertex="1">
+          <mxGeometry height="110" width="440" x="1040" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="api" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="baseline" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="rag" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="agent" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="base" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="rag" value="trechos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="base" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="agent" value="trechos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="weather" value="quando aplicavel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="weather" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="previsao ou erro de consulta">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="baseline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="rag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="early" value="sem trechos nem previsao; exceto baseline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="early" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="demo" value="demo ativo, sem recusa antecipada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="demo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="ollama" value="demo desativado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="lora" value="demo desativado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="adapter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="lora" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="ollama" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="lora" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Consulta direta de clima" id="aBb0lnj72M21L63KGTKm">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1700" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wtitle" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;fontSize=13;spacing=8;" value="Consulta direta de previsao - Implementada" vertex="1">
+          <mxGeometry height="50" width="500" x="100" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wui" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Interface HTML local&#xa;Latitude e longitude informadas" vertex="1">
+          <mxGeometry height="70" width="280" x="230" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="wapi" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="FastAPI - GET /api/clima&#xa;Valida as coordenadas" vertex="1">
+          <mxGeometry height="70" width="280" x="230" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="wopen" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Open-Meteo Forecast API&#xa;Previsao das proximas 72 horas" vertex="1">
+          <mxGeometry height="80" width="280" x="230" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="wsummary" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#64748b;fontSize=13;spacing=8;" value="Resumo de chuva e temperatura&#xa;Fonte e horario da consulta&#xa;Erro se o servico estiver indisponivel" vertex="1">
+          <mxGeometry height="90" width="280" x="230" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="wout" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#64748b;fontSize=13;spacing=8;" value="Exibicao na interface&#xa;Sem chamar o modelo de linguagem" vertex="1">
+          <mxGeometry height="80" width="280" x="230" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="wui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wapi" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="wapi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wopen" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="wopen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wsummary" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="wsummary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;labelBackgroundColor=#ffffff;" target="wout" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Respostas da IA" id="zMmVhlCORG4KO95Kt_1h">
+    <mxGraphModel dx="1372" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1780" pageHeight="1580" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Belka Gen AI&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="720" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Interface HTML&lt;/b&gt;&lt;br&gt;&lt;br&gt;Pergunta, modo e opção de demontração" vertex="1">
+          <mxGeometry height="90" width="320" x="700" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;API FastAPI&lt;/b&gt;&lt;br&gt;&lt;br&gt;POST /api/perguntar&lt;br&gt;Validação dos campos da pergunta" vertex="1">
+          <mxGeometry height="90" width="320" x="700" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="baseline" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Sem contexto&lt;/b&gt;&lt;br&gt;&lt;br&gt;Baseline&lt;br&gt;Não consulta a base de trechos" vertex="1">
+          <mxGeometry height="90" width="320" x="180" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="rag" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Busca RAG&lt;/b&gt;&lt;br&gt;&lt;br&gt;rag / rag_lora&lt;br&gt;Busca até 3 trechos na base local" vertex="1">
+          <mxGeometry height="90" width="320" x="700" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="agent" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Agente com ferramentas&lt;/b&gt;&lt;br&gt;&lt;br&gt;agent / agent_lora&lt;br&gt;Busca até 4 trechos na base local&lt;br&gt;Consulta Open-Meteo com cidade e pedido de previsão" vertex="1">
+          <mxGeometry height="130" width="380" x="1220" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Serviço de respostas&lt;/b&gt;&lt;br&gt;&lt;br&gt;Reúne pergunta, instruções e evidencias disponíveis&lt;br&gt;Encaminha conforme o modo e a opção de demonstração" vertex="1">
+          <mxGeometry height="110" width="360" x="680" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="early" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Recusa sem geração&lt;/b&gt;&lt;br&gt;&lt;br&gt;Modos com contexto, sem trechos nem previsão&lt;br&gt;Retorna: Não consta na base consultada." vertex="1">
+          <mxGeometry height="110" width="360" x="100" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="demo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Modo demonstração&lt;/b&gt;&lt;br&gt;&lt;br&gt;Com evidências: copia o primeiro trecho, sem modelo&lt;br&gt;Baseline: informa que o modo demo não executa o modelo" vertex="1">
+          <mxGeometry height="110" width="360" x="1250" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="ollama" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Modelo original via Ollama&lt;/b&gt;&lt;br&gt;&lt;br&gt;baseline / rag / agent&lt;br&gt;Qwen2.5 1.5B" vertex="1">
+          <mxGeometry height="100" width="340" x="470" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="lora" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Modelo com LoRA via PEFT&lt;/b&gt;&lt;br&gt;&lt;br&gt;rag_lora / agent_lora&lt;br&gt;Qwen2.5 1.5B com ajuste treinado&lt;br&gt;Carrega outputs/belka-lora" vertex="1">
+          <mxGeometry height="120" width="380" x="930" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="check" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Verificação da resposta&lt;/b&gt;&lt;br&gt;&lt;br&gt;Lê o JSON e confere as citações&lt;br&gt;Aplica regras adicionais nos modos agente" vertex="1">
+          <mxGeometry height="100" width="360" x="680" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="out" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Resposta da API&lt;/b&gt;&lt;br&gt;&lt;br&gt;Resposta ou recusa, citações e avisos&lt;br&gt;Exibição na interface local" vertex="1">
+          <mxGeometry height="100" width="360" x="680" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="baseinfo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Base de conhecimento&lt;/b&gt;&lt;br&gt;&lt;br&gt;base/fontes.json e base/trechos.jsonl&lt;br&gt;9 fontes e 24 trechos usados pela busca RAG e pelo agente" vertex="1">
+          <mxGeometry height="100" width="400" x="100" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="api" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="baseline" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="430" />
+              <mxPoint x="340" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="rag" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="agent" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="430" />
+              <mxPoint x="1410" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="baseline" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" target="context" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="650" />
+              <mxPoint x="770" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="rag" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="context" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="agent" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="context" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="650" />
+              <mxPoint x="950" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" target="early" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="demo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="ollama" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="870" />
+              <mxPoint x="640" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="lora" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="870" />
+              <mxPoint x="1120" y="870" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="ollama" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" target="check" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="1130" />
+              <mxPoint x="770" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="lora" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="check" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1120" y="1130" />
+              <mxPoint x="950" y="1130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="early" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" target="out" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="760" />
+              <mxPoint x="40" y="1460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="demo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="out" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1710" y="760" />
+              <mxPoint x="1710" y="1460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Consulta direta de clima" id="0dVhIpsP7ci7ffKxZ4UC">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="800" pageHeight="1050" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Consulta direta de clima&lt;/b&gt;&lt;br&gt;&lt;br&gt;Fluxo implementado sem chamar o modelo de linguagem" vertex="1">
+          <mxGeometry height="80" width="440" x="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Interface HTML local&lt;/b&gt;&lt;br&gt;&lt;br&gt;Latitude e longitude informadas" vertex="1">
+          <mxGeometry height="90" width="320" x="240" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;API FastAPI&lt;/b&gt;&lt;br&gt;&lt;br&gt;GET /api/clima&lt;br&gt;Validacao das coordenadas" vertex="1">
+          <mxGeometry height="90" width="320" x="240" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="open" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Open-Meteo Forecast API&lt;/b&gt;&lt;br&gt;&lt;br&gt;Previsao das proximas 72 horas" vertex="1">
+          <mxGeometry height="90" width="320" x="240" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="summary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Resumo da previsao&lt;/b&gt;&lt;br&gt;&lt;br&gt;Chuva e temperatura, fonte e horario da consulta&lt;br&gt;Informa erro se o servico estiver indisponivel" vertex="1">
+          <mxGeometry height="110" width="360" x="220" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#333333;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;spacing=12;align=center;verticalAlign=middle;" value="&lt;b&gt;Interface HTML local&lt;/b&gt;&lt;br&gt;&lt;br&gt;Exibe os dados da previsao&lt;br&gt;Informa que nao sao alertas oficiais" vertex="1">
+          <mxGeometry height="100" width="320" x="240" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="api" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="open" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="open" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="summary" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="summary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="out" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
