@@ -10,7 +10,8 @@ A Belka é uma proposta voltada à comunicação acessível sobre **enchentes e 
 
 Ficha técnica: [descrição do componente](docs/ficha_tecnica.md). O projeto propõe contribuir com a meta 11.5 dos ODS, apoiando o acesso a orientações de prevenção, e com a meta 13.3, apoiando a educação sobre riscos climáticos.
 
-Repositório: https://github.com/fernandakaory/gs-belka-genai. Vídeo: [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8). O endereço local de execução está na seção 5.
+Repositório: https://github.com/fernandakaory/gs-belka-genai.  
+Vídeo: [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8). O endereço local de execução está na seção 5.
 
 O projeto compara cinco configurações:
 
