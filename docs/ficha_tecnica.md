@@ -26,6 +26,10 @@
 
 **Vídeo:** [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
 
-**MVP público:** URL ainda pendente.
+**MVP público:** pendente
 
-**Integrantes:** Fernanda Kaory Saito — RM 551104; João Pedro Borsato — RM 550294; Maria Fernanda Camargo — RM 97956; Pedro Lucas Nunes — RM 550366; Vinícius Bernardino — RM 97888. Confirmar a composição antes da entrega.
+**Integrantes:**   
+Fernanda Kaory Saito — RM 551104  
+João Pedro Borsato — RM 550294  
+Maria Fernanda Camargo — RM 97956  
+Pedro Lucas Nunes — RM 550366

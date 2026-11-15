@@ -163,7 +163,7 @@ São chamadas ao serviço: a ausência de evidências pode gerar recusa sem cham
 
 Nos indicadores automáticos disponíveis, `rag_lora` teve melhor resultado conjunto. **Não há comprovação de melhor qualidade geral das respostas**: a recusa é detectada por expressões textuais, e a métrica de gabarito verifica coincidência de IDs, não a validade da justificativa.
 
-O avaliador atual considera até quatro trechos nos modos agente e três nos modos RAG; só aceita a fonte WEATHER quando há dados meteorológicos. Os resultados históricos foram preservados e ainda contêm a avaliação anterior do campo `citacoes_autorizadas`. A comparação do conteúdo das respostas continua pendente de revisão pela equipe, conforme o procedimento no relatório.
+O avaliador atual considera até quatro trechos nos modos agente e três nos modos RAG; só aceita a fonte WEATHER quando há dados meteorológicos.
 
 Resultados salvos:
 
