@@ -26,7 +26,9 @@
 | Impacto a medir | Compreensão das orientações e facilidade de encontrar informação, mediante testes futuros com usuários |
 | Repositório | https://github.com/fernandakaory/gs-belka-genai |
 | Vídeo de demonstração | [YouTube — Belka Gen AI](https://youtu.be/IN0QhtyyTC8) |
-| MVP público | pendente |
+| MVP público | [Acessar a Belka AI](https://belka-api.salmonisland-04dfa6a6.brazilsouth.azurecontainerapps.io/) |
+
+> **Disponibilidade do MVP:** a aplicação é hospedada na Azure e sua disponibilidade pelo link depende da disponibilidade de créditos da assinatura Azure for Students (Azure Student). Caso os créditos se esgotem, a aplicação poderá ficar indisponível.
 
 ### Contribuição aos ODS
 
@@ -261,4 +263,4 @@ O protótipo Belka Gen AI implementou e avaliou concretamente Qwen original, RAG
 
 - Repositório: https://github.com/fernandakaory/gs-belka-genai
 - Vídeo de demonstração: [Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
-- MVP publicado: **pendente**.
+- MVP publicado: [acessar a Belka AI](https://belka-api.salmonisland-04dfa6a6.brazilsouth.azurecontainerapps.io/). A disponibilidade pelo link depende dos créditos da assinatura Azure for Students; caso se esgotem, a aplicação poderá ficar indisponível.

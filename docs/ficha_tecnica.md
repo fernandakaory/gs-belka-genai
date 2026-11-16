@@ -26,7 +26,9 @@
 
 **Vídeo:** [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
 
-**MVP público:** pendente
+**MVP público:** [acessar a Belka AI](https://belka-api.salmonisland-04dfa6a6.brazilsouth.azurecontainerapps.io/).
+
+**Disponibilidade do MVP:** a aplicação é hospedada na Azure e sua disponibilidade pelo link depende da disponibilidade de créditos da assinatura Azure for Students (Azure Student). Caso os créditos se esgotem, a aplicação poderá ficar indisponível.
 
 **Integrantes:**   
 Fernanda Kaory Saito — RM 551104  

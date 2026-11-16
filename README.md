@@ -13,6 +13,10 @@ Ficha técnica: [descrição do componente](docs/ficha_tecnica.md). O projeto pr
 Repositório: https://github.com/fernandakaory/gs-belka-genai.  
 Vídeo: [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
 
+MVP público: [acessar a Belka AI](https://belka-api.salmonisland-04dfa6a6.brazilsouth.azurecontainerapps.io/).
+
+> **Disponibilidade do MVP:** a aplicação é hospedada na Azure e sua disponibilidade pelo link depende da disponibilidade de créditos da assinatura Azure for Students (Azure Student). Caso os créditos se esgotem, a aplicação poderá ficar indisponível.
+
 O projeto compara cinco configurações:
 
 | Configuração | Componentes |
@@ -195,7 +199,7 @@ O histórico documenta **13 testes aprovados e um aviso** em uma versão anterio
 - O LoRA melhorou indicadores estruturais, porém apresentou respostas com conteúdo limitado em casos analisados.
 - O agente escolhe ferramentas por regras; a combinação de agente com LoRA não foi a melhor em todas as métricas.
 - Dados meteorológicos não são alertas oficiais nem permitem derivar, por si sós, probabilidade confiável de desastre em um endereço.
-- Publicação da interface e da API em URL pública e integração efetiva com o componente Big Data **não estão comprovadas neste repositório**. Não apresentar funcionalidades do MVP integrado como entregues sem evidência específica.
+- A disponibilidade do MVP público depende dos créditos da assinatura Azure for Students. A integração efetiva com o componente Big Data **não está comprovada neste repositório**; não apresentar funcionalidades dessa integração como entregues sem evidência específica.
 - Para situações de perigo, devem prevalecer orientações e canais oficiais de Defesa Civil.
 
 ## 11. Fontes e documentação
