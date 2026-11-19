@@ -14,5 +14,3 @@ Fontes verificadas na web. `base/fontes.json` contém a URL rastreável, e `base
 | [Open-Meteo Historical Forecast](https://open-meteo.com/en/docs/historical-forecast-api) | K20 | Previsões arquivadas para avaliação | Cobertura deve ser verificada |
 
 **Critério de inclusão:** domínio institucional, conexão com um dos quatro riscos, conteúdo verificável e limites explícitos. Não foram adicionados limiares de perigo arbitrários nem exemplos de alertas falsamente atribuídos à Defesa Civil.
-
-**Para ampliar de verdade em escala:** integrar downloads oficiais autorizados, registrar data da versão, hash do documento, licença, trecho, URL e origem; testar recuperação antes de usar em público. O REINDESC e o Georisk são fontes futuras, não datasets já baixados.

@@ -15,15 +15,13 @@
 
 | Campo | Descrição |
 |---|---|
-| Cidadão e território | Pessoas em cidades brasileiras que precisam de orientação sobre riscos ambientais; previsão disponível para coordenadas informadas e cidades cadastradas |
+| Público alvo| Pessoas em cidades brasileiras que precisam de orientação sobre riscos ambientais |
 | Problema | Dificuldade de encontrar e compreender orientações de prevenção com fontes confiáveis |
 | Proposta de valor | Respostas curtas em português, com citações e reconhecimento dos limites das informações |
 | Tarefa da IA | Responder perguntas sobre enchentes, deslizamentos, incêndios e ondas de calor com apoio na base consultada |
 | Entrada e saída | Pergunta em português; JSON com resposta, citações, modo e avisos |
 | Componentes | Interface HTML, FastAPI, busca local, ferramentas meteorológicas e modelo Qwen original ou com LoRA |
-| Participantes | Equipe Belka, cidadãos e fontes públicas; não há parceria formal comprovada com os órgãos citados |
 | Indicadores técnicos | Recall@1/@3, formato JSON, citações, recusas e tempo de resposta |
-| Impacto a medir | Compreensão das orientações e facilidade de encontrar informação, mediante testes futuros com usuários |
 | Repositório | https://github.com/fernandakaory/gs-belka-genai |
 | Vídeo de demonstração | [YouTube — Belka Gen AI](https://youtu.be/IN0QhtyyTC8) |
 | MVP público | [Acessar a Belka AI](https://belka-api.salmonisland-04dfa6a6.brazilsouth.azurecontainerapps.io/) |
@@ -39,7 +37,7 @@
 
 A Belka é uma proposta voltada à comunicação acessível de informações ambientais e orientações preventivas relacionadas a enchentes, deslizamentos, incêndios e ondas de calor. O projeto responde a perguntas do usuário com linguagem simples, consulta trechos documentados e, quando solicitado e disponível, consulta informações meteorológicas do Open-Meteo.
 
-A tarefa da IA é **gerar respostas fundamentadas em evidências disponíveis, em JSON com os campos `resposta` e `citacoes`, e reconhecer perguntas que não podem ser respondidas**. Não se pretende prever diretamente a ocorrência de desastres por meio da Qwen, calcular risco científico validado ou substituir a Defesa Civil. Os indicadores eventualmente exibidos por outros componentes da Belka são experimentais e distintos dos alertas oficiais.
+A tarefa da IA é **gerar respostas fundamentadas em evidências disponíveis, em JSON com os campos `resposta` e `citacoes`, e reconhecer perguntas que não podem ser respondidas**. Não se pretende prever diretamente a ocorrência de desastres por meio da Qwen, calcular risco ou substituir a Defesa Civil. Os indicadores eventualmente exibidos por outros componentes da Belka são experimentais e distintos dos alertas oficiais.
 
 ## 2. Arquitetura e configurações avaliadas
 
@@ -65,44 +63,29 @@ As cinco configurações comparadas foram:
 | `agent` | Qwen original + RAG + ferramentas selecionadas por regras |
 | `agent_lora` | Qwen + adapter LoRA + RAG + ferramentas selecionadas por regras |
 
-**Limitação metodológica:** a Qwen original e a inferência com adapter PEFT utilizam mecanismos distintos (Ollama e Transformers/PEFT). Portanto, a comparação mede o comportamento das configurações completas e não isola perfeitamente o efeito causal do LoRA.
+**Limitação metodológica:** a Qwen original e a inferência com adapter PEFT utilizam mecanismos distintos (Ollama e Transformers/PEFT). Portanto, a comparação mede o comportamento das configurações completas e não isola perfeitamente o efeito do LoRA.
 
 ## 3. Fontes e base de conhecimento
 
 A base possui **9 fontes catalogadas** em `base/fontes.json` e **24 trechos** em `base/trechos.jsonl`, identificados por IDs e associados às suas fontes. Os trechos são paráfrases resumidas, não reproduções integrais de documentos. O catálogo atual contém:
 
-| ID | Fonte catalogada | Referência |
-|---|---|---|
-| S01 | Defesa Civil Nacional — Saiba como agir | https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/saiba-como-agir |
-| S02 | Open-Meteo Forecast API | https://open-meteo.com/en/docs |
-| S03 | Open-Meteo Flood API | https://open-meteo.com/en/docs/flood-api |
-| S04 | Diretrizes de comunicação e limites da Belka | `docs/diretrizes_belka.md` |
-| S05 | Ministério da Saúde — Ondas de Calor | https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/o/ondas-de-calor |
-| S06 | Cemaden — Portais oficiais de monitoramento | https://www.gov.br/cemaden/pt-br/assuntos/briefing-cemaden-cenad/06-11-2026-briefing-cemaden-cenad |
-| S07 | Open-Meteo Historical Weather API | https://open-meteo.com/en/docs/historical-weather-api |
-| S08 | Open-Meteo Historical Forecast API | https://open-meteo.com/en/docs/historical-forecast-api |
-| S09 | Cemaden Educação — Campanha Prevenção Riscos de Desastres | https://educacao.cemaden.gov.br/wp-content/uploads/cemaden-educacao/Campanha-Prevencao-Riscos-de-Desastres_SECLIMA-1.pdf |
-
-O cadastro das fontes externas informa acesso em **09/11/2026**. A presença de uma URL no catálogo não implica validação externa independente, nesta auditoria, da integridade de cada página ou de suas licenças. Para as fontes externas, o próprio catálogo orienta verificar termos de reutilização.
-
-| Fonte | Formato de origem | Licença ou situação de uso registrada | Trechos |
+| ID | Fonte catalogada | Formato de origem | Trechos |
 |---|---|---|---:|
-| S01 — Defesa Civil | Página web | Termos de reutilização pendentes de confirmação | 7 |
-| S02 — Open-Meteo Forecast | Documentação web e API JSON | Licença e limites do serviço pendentes de confirmação | 4 |
-| S03 — Open-Meteo Flood | Documentação web e API JSON | Licença e limites do serviço pendentes de confirmação | 2 |
-| S04 — Diretrizes Belka | Markdown local | Material da equipe; autorização externa não aplicável | 2 |
-| S05 — Ministério da Saúde | Página web | Termos de reutilização pendentes de confirmação | 3 |
-| S06 — Cemaden | Página web | Termos de reutilização pendentes de confirmação | 3 |
-| S07 — Open-Meteo Historical Weather | Documentação web e API JSON | Licença e limites do serviço pendentes de confirmação | 1 |
-| S08 — Open-Meteo Historical Forecast | Documentação web e API JSON | Licença e limites do serviço pendentes de confirmação | 1 |
-| S09 — Cemaden Educação | PDF | Termos de reutilização pendentes de confirmação | 1 |
-| **Total** | Trechos armazenados em JSONL | Licenças externas ainda não validadas | **24** |
+| S01 | [Defesa Civil Nacional — Saiba como agir](https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/saiba-como-agir) | Página web | 7 |
+| S02 | [Open-Meteo Forecast API](https://open-meteo.com/en/docs) | Documentação web e API JSON | 4 |
+| S03 | [Open-Meteo Flood API](https://open-meteo.com/en/docs/flood-api) | Documentação web e API JSON | 2 |
+| S04 | [Diretrizes de comunicação e limites da Belka](diretrizes_belka.md) | Markdown local | 2 |
+| S05 | [Ministério da Saúde — Ondas de Calor](https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/o/ondas-de-calor) | Página web | 3 |
+| S06 | [Cemaden — Portais oficiais de monitoramento](https://www.gov.br/cemaden/pt-br/assuntos/briefing-cemaden-cenad/06-11-2026-briefing-cemaden-cenad) | Página web | 3 |
+| S07 | [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) | Documentação web e API JSON | 1 |
+| S08 | [Open-Meteo Historical Forecast API](https://open-meteo.com/en/docs/historical-forecast-api) | Documentação web e API JSON | 1 |
+| S09 | [Cemaden Educação — Campanha Prevenção Riscos de Desastres](https://educacao.cemaden.gov.br/wp-content/uploads/cemaden-educacao/Campanha-Prevencao-Riscos-de-Desastres_SECLIMA-1.pdf) | PDF | 1 |
+| | **Total** | | **24** |
 
-A referência local S04 foi atualizada para um documento das regras atuais do projeto, pois o resumo do manual de marca foi removido. Os textos e IDs K09 e K10 foram mantidos; essa mudança não representa uma nova avaliação ou consulta ao manual original.
 
 ## 4. Casos de teste e dataset LoRA
 
-O conjunto `avaliacao/casos_teste.json` contém **17 perguntas**, sendo **12 respondíveis** no escopo da base e **5 perguntas “não consta”**, para as quais o sistema deve reconhecer insuficiência de informação, em vez de inventar respostas. Cada caso possui referências de gabarito para avaliação de recuperação/citação; o gabarito por ID não substitui avaliação do conteúdo.
+O conjunto `avaliacao/casos_teste.json` contém **17 perguntas**, sendo **12 respondíveis** no escopo da base e **5 perguntas “não consta”**, para as quais o sistema deve reconhecer insuficiência de informação, em vez de inventar respostas. Cada caso possui referências de gabarito para avaliação de recuperação/citação.
 
 Os dados de especialização LoRA, em formato JSONL com mensagens `system`, `user` e `assistant`, encontram-se em `treinamento/`:
 
@@ -149,7 +132,7 @@ O adapter foi treinado a partir de `Qwen/Qwen2.5-1.5B-Instruct` com PyTorch, Tra
 | Passos de otimização | 36 |
 | Loss de treinamento final | 0,9187 |
 
-As anotações da execução registram loss de treinamento de **1,2794 → 0,9187** e loss de validação de **0,8038 → 0,7308** entre as épocas 1 e 2. Esses números não são medidas de precisão factual.
+As execuções registraram loss de treinamento de **1,2794 → 0,9187** e loss de validação de **0,8038 → 0,7308** entre as épocas 1 e 2. Esses números não são medidas de precisão factual.
 
 Uma avaliação separada (`avaliacao/avaliar_lora.py`, resultados em `avaliacao/resultados_lora.json`) realizou **36 inferências com Qwen original** e **36 com Qwen + LoRA** nos 36 exemplos de teste:
 
@@ -162,7 +145,7 @@ Uma avaliação separada (`avaliacao/avaliar_lora.py`, resultados em `avaliacao/
 | IDs de citação sem invenção | 0/36 | 36/36 |
 | Tempo médio por inferência | 3,9199 s | 1,6843 s |
 
-A maior conformidade de JSON, recusas e IDs no teste **não demonstra a mesma melhora em utilidade ou correção do conteúdo**. Na revisão qualitativa anterior, 18 das 30 respostas informativas do LoRA tiveram até três palavras; ocorreram respostas curtas ou incompletas e interpretações inadequadas de evidências. A causa exata não foi demonstrada. Os tempos não devem ser interpretados como ganho isolado de desempenho do LoRA, dado o uso de motores de inferência diferentes.
+A maior conformidade de JSON, recusas e IDs no teste **não demonstra a mesma melhora em utilidade ou correção do conteúdo**. Na revisão qualitativa anterior, 18 das 30 respostas informativas do LoRA tiveram até três palavras; ocorreram respostas curtas ou incompletas e interpretações inadequadas de evidências. Os tempos não devem ser interpretados como ganho isolado de desempenho do LoRA, dado o uso de motores de inferência diferentes.
 
 ## 7. Comparação das cinco configurações
 
@@ -180,7 +163,7 @@ Arquivos produzidos: `avaliacao/resultados_comparacao_reais.json`, `avaliacao/re
 
 ### Interpretação de cada configuração
 
-**1. Baseline — modelo sem contexto (`baseline`).** Apenas 3 dos 17 registros tiveram JSON válido (17,6%), e nenhum dos 12 casos respondíveis citou o gabarito. A ausência de citações é esperada nessa configuração, pois ela não recebe os documentos da base. Foram identificadas recusas nos cinco casos sem resposta, mas isso precisa ser lido junto das falhas de formato: o serviço também transforma saídas inválidas em recusa. Portanto, esse resultado não demonstra que o modelo reconheceu corretamente seus limites em todos esses casos. O baseline serve como referência e apresentou dificuldade para cumprir o formato exigido pelo produto.
+**1. Baseline — modelo sem contexto (`baseline`).** Apenas 3 dos 17 registros tiveram JSON válido (17,6%), e nenhum dos 12 casos respondíveis citou o gabarito. A ausência de citações é esperada nessa configuração, pois ela não recebe os documentos da base. Foram identificadas recusas nos cinco casos sem resposta, mas isso está atrelado às falhas de formato: o serviço também transforma saídas inválidas em recusa. Portanto, esse resultado não demonstra que o modelo reconheceu corretamente seus limites em todos esses casos. O baseline serve como referência e apresentou dificuldade para cumprir o formato exigido pelo produto.
 
 **2. Modelo com busca na base (`rag`).** O JSON válido passou para 16 de 17 registros (94,1%), o gabarito foi citado em 9 dos 12 casos respondíveis e houve recusa identificada nos cinco casos negativos. Em comparação ao baseline, fornecer documentos esteve associado a melhores resultados de formato e citação. Ainda assim, encontrar e citar um trecho não garantiu apoio suficiente à resposta: em T12, a conclusão sobre chuva não garantir enchentes veio acompanhada de K02, enquanto K12 era a evidência mais direta. O RAG simples apresentou uma melhora clara nos indicadores medidos, com falhas pontuais de formato e escolha de fonte.
 
@@ -202,31 +185,20 @@ A escolha de `rag_lora` é uma conclusão sobre **este conjunto de 17 perguntas 
 
 O avaliador foi corrigido para conferir citações entre até quatro trechos recuperados nos modos agente e até três nos modos RAG, e aceitar WEATHER somente quando houver dados meteorológicos na resposta do serviço. Os arquivos históricos não foram sobrescritos; o campo `citacoes_autorizadas` desses arquivos foi calculado pela versão anterior. O placar acima não usa esse campo e seus totais foram conferidos contra os registros salvos.
 
-Para concluir a comparação de qualidade, a equipe deve revisar o conteúdo das 85 respostas com o mesmo critério em todos os modos: resposta correta e suficiente, recusa adequada, informação sem apoio nas fontes e informação comprovadamente falsa. Essas categorias devem ser contadas separadamente; ausência de citação não prova, sozinha, que a informação é falsa.
-
 ## 8. Cinco erros reais e propostas de correção
 
 Foram selecionadas cinco **ocorrências reais de falha**, relativas a quatro perguntas distintas, a partir da comparação. A análise integral encontra-se em `docs/analise_cinco_erros.md`.
 
-| Ocorrência | Configuração / caso | Problema observado | Correção proposta (não validada) |
-|---|---|---|---|
-| 1 | Baseline / T03 | Recusa indevida sobre sinais de deslizamento, com JSON inválido, embora K03 fosse relevante | Fornecer contexto via RAG e exigir saída estruturada |
-| 2 | RAG / T02 | Resposta “Não consta na base consultada” para pergunta respondível e JSON inválido | Investigar recuperação e validar saída JSON |
-| 3 | RAG / T12 | Conclusão adequada sobre chuva não garantir enchentes, mas citação de K02 em vez da evidência direta K12 | Priorizar evidências diretamente relevantes |
-| 4 | RAG + LoRA + agente / T17 | Resposta genérica sem reconhecer explicitamente a impossibilidade de determinar o minuto exato do deslizamento | Testar e reforçar recusas por insuficiência de evidência |
-| 5 | RAG + LoRA + agente / T12 | Citações K02 e K07 em vez de K12; orientação adicional sobre deslizamentos não solicitada | Aperfeiçoar seleção de evidências e foco da resposta |
+| Ocorrência | Configuração / caso | Problema observado | Causa observável ou provável | Correção proposta (não validada) |
+|---|---|---|---|---|
+| 1 | Baseline / T03 | Recusa indevida sobre sinais de deslizamento, com JSON inválido, embora K03 fosse relevante | Sem contexto da base e com saída marcada como JSON inválido, o serviço devolve recusa; o texto bruto não permite identificar a falha exata | Fornecer contexto via RAG e exigir saída estruturada |
+| 2 | RAG / T02 | Resposta “Não consta na base consultada” para pergunta respondível e JSON inválido | Provável rejeição do formato ou das citações; a resposta bruta não foi preservada no arquivo comparativo | Investigar recuperação e validar saída JSON |
+| 3 | RAG / T12 | Conclusão adequada sobre chuva não garantir enchentes, mas citação de K02 em vez da evidência direta K12 | A checagem confirma que o ID existe entre os trechos recuperados, mas não verifica se ele apoia cada frase | Priorizar evidências diretamente relevantes |
+| 4 | RAG + LoRA + agente / T17 | Resposta genérica sem reconhecer explicitamente a impossibilidade de determinar o minuto exato do deslizamento | Provável resposta ao tema geral dos trechos, ignorando o pedido de horário exato; a regra do agente não detecta essa diferença | Testar e reforçar recusas por insuficiência de evidência |
+| 5 | RAG + LoRA + agente / T12 | Citações K02 e K07 em vez de K12; orientação adicional sobre deslizamentos não solicitada | Provável combinação de orientações dos trechos sem limitar o conteúdo ao pedido; não há verificação do foco de cada frase | Aperfeiçoar seleção de evidências e foco da resposta |
 
-As propostas são recomendações de melhoria. **Não houve reavaliação experimental demonstrando que essas correções foram implementadas ou surtiram efeito.**
+As propostas são recomendações de melhoria. **Não houve reavaliação experimental para demonstrar que essas correções foram implementadas ou surtiram efeito.**
 
-| Ocorrência | Causa observável ou provável |
-|---|---|
-| 1 — Baseline / T03 | Sem contexto da base e com saída marcada como JSON inválido, o serviço devolve recusa; o texto bruto não permite identificar a falha exata |
-| 2 — RAG / T02 | Provável rejeição do formato ou das citações; a resposta bruta não foi preservada no arquivo comparativo |
-| 3 — RAG / T12 | A checagem confirma que o ID existe entre os trechos recuperados, mas não verifica se ele apoia cada frase |
-| 4 — Agente + LoRA / T17 | Provável resposta ao tema geral dos trechos, ignorando o pedido de horário exato; a regra do agente não detecta essa diferença |
-| 5 — Agente + LoRA / T12 | Provável combinação de orientações dos trechos sem limitar o conteúdo ao pedido; não há verificação do foco de cada frase |
-
-As causas prováveis são hipóteses baseadas nos registros e no código atual. Em T17, o campo histórico de citação não autorizada também pode ter sido afetado pela diferença entre três trechos no avaliador antigo e quatro no agente.
 
 ## 9. API, interface e reprodutibilidade
 
@@ -253,11 +225,10 @@ Para inspeção e reprodução, consultar os arquivos existentes:
 4. **Busca por palavras:** o Recall@3 de 100% no pequeno conjunto avaliado não implica recuperação perfeita em perguntas inéditas; houve falso positivo de recuperação em uma pergunta sem resposta.
 5. **Medição automática:** JSON válido, detecção textual de recusa e correspondência exata de IDs são critérios verificáveis, mas insuficientes para avaliar exatidão, utilidade ou segurança.
 6. **Ferramentas e meteorologia:** os dados meteorológicos variam com a data de consulta; indisponibilidade de API externa não autoriza inventar valores ou alertas.
-7. **Maturidade:** não foi comprovada validação operacional para uso real como serviço de emergência. A avaliação acadêmica deve distinguir resultados registrados de propostas futuras.
 
 ## 11. Conclusão
 
-O protótipo Belka Gen AI implementou e avaliou concretamente Qwen original, RAG com busca por palavras, especialização LoRA e seleção de ferramentas por regras. Foram registrados 24 trechos associados a nove fontes, experimentos de recuperação com limiares, treinamento de adapter LoRA, avaliação original × LoRA e comparação de 85 chamadas ao serviço nas cinco configurações. O modo RAG + LoRA destacou-se nas métricas automáticas adotadas, mas permanecem falhas de fundamentação e adequação identificadas por análise qualitativa. Assim, o resultado demonstra viabilidade técnica de integração e experimentação.
+O projeto implementou e avaliou concretamente Qwen original, RAG com busca por palavras, especialização LoRA e seleção de ferramentas por regras. Foram registrados 24 trechos associados a nove fontes, experimentos de recuperação com limiares, treinamento de adapter LoRA, avaliação original × LoRA e comparação de 85 chamadas ao serviço nas cinco configurações. O modo RAG + LoRA destacou-se nas métricas automáticas adotadas, mas permanecem falhas de fundamentação e adequação identificadas por análise qualitativa. Assim, o resultado demonstra viabilidade técnica de integração e experimentação.
 
 ### Links de entrega
 

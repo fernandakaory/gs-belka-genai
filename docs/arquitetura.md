@@ -1,6 +1,6 @@
 # Arquitetura — Belka Gen AI
 
-O diagrama mostra somente componentes implementados neste repositório. A versão editável está em [arquitetura.drawio](arquitetura.drawio), com páginas para respostas da IA e consulta direta de clima.
+O diagrama da solução. A versão editável está em [arquitetura.drawio](arquitetura.drawio).
 
 ![Diagrama da arquitetura implementada da Belka Gen AI](../img/Belka-genai-drawio.png)
 

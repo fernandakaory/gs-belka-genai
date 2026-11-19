@@ -61,7 +61,7 @@ docs/          relatório técnico, arquitetura, cinco erros e documentos auxili
 img/           evidências de execução do projeto
 ```
 
-Os dois notebooks contêm **saídas salvas**, sem erros registrados nas células de código inspecionadas. Eles apresentam os resultados dos arquivos existentes; sua execução não representa novo treinamento ou nova rodada de inferências. Consulte `docs/relatorio.md` e `docs/analise_cinco_erros.md` para metodologia, resultados e limites.
+Os dois notebooks contêm **saídas salvas**. Eles apresentam os resultados dos arquivos existentes; sua execução não representa novo treinamento ou nova rodada de inferências. Consulte `docs/relatorio.md` e `docs/analise_cinco_erros.md` para metodologia, resultados e limites.
 
 ## 4. Preparação do ambiente (Windows 11 + Git Bash no VS Code)
 
@@ -186,11 +186,13 @@ python -m scripts.avaliar_geracao --modes baseline rag rag_lora agent agent_lora
 
 ## 9. Testes automatizados
 
+Os testes automatizados cobrem os endpoints da API, a busca na base, as recusas a perguntas sem evidência, a validação de citações, a seleção de ferramentas pelo agente e a integridade dos dados de treinamento.
+
+Com as dependências de `requirements.txt` instaladas, execute na raiz do repositório:
+
 ```bash
 python -m pytest -q
 ```
-
-O histórico documenta **13 testes aprovados e um aviso** em uma versão anterior. A revisão documental da Etapa F6 não reexecutou a suíte; esse número não é apresentado como validação atual. Existem capturas locais de API/agente (`img/16-validacao-final-api-agente-1.png` e `img/16-validacao-final-api-agente-2.png`) e interface (`img/17-validacao-final-interface.png`), cujo conteúdo ainda deve ser conferido antes de declarar a validação final concluída.
 
 ## 10. Limitações e precauções
 
@@ -199,7 +201,7 @@ O histórico documenta **13 testes aprovados e um aviso** em uma versão anterio
 - O LoRA melhorou indicadores estruturais, porém apresentou respostas com conteúdo limitado em casos analisados.
 - O agente escolhe ferramentas por regras; a combinação de agente com LoRA não foi a melhor em todas as métricas.
 - Dados meteorológicos não são alertas oficiais nem permitem derivar, por si sós, probabilidade confiável de desastre em um endereço.
-- A disponibilidade do MVP público depende dos créditos da assinatura Azure for Students. A integração efetiva com o componente Big Data **não está comprovada neste repositório**; não apresentar funcionalidades dessa integração como entregues sem evidência específica.
+- A disponibilidade do MVP público depende dos créditos da assinatura Azure for Students.
 - Para situações de perigo, devem prevalecer orientações e canais oficiais de Defesa Civil.
 
 ## 11. Fontes e documentação

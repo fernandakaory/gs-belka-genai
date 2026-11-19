@@ -4,11 +4,11 @@
 
 **Tarefa da IA:** responder perguntas educativas sobre enchentes, deslizamentos, incêndios e ondas de calor; buscar trechos com fonte, explicar limites das previsões e recusar perguntas sem suporte.
 
-**Domínio acadêmico:** segurança comunitária / CitizenTech; integração com app Belka.
+**Domínio acadêmico:** segurança comunitária / CitizenTech;
 
 **Usuários:** cidadãos, lideranças comunitárias, agentes de apoio; linguagem simples e acessível.
 
-**Entrada:** perguntas em PT-BR, opcional consulta manual de coordenadas para previsão meteorológica.
+**Entrada:** perguntas em português, opcional consulta manual de coordenadas para previsão meteorológica.
 
 **Saída:** JSON com `resposta`, `citacoes`, `configuracao`, `fundamentada`, `aviso`.
 
@@ -18,11 +18,9 @@
 
 **Pontos que NÃO estão validados:** eficácia de prevenção, veracidade de todas as respostas, previsão probabilística de eventos, adequação jurídica para operação pública.
 
-**ODS:** meta 11.5, pelo apoio informativo à prevenção de desastres; meta 13.3, pela educação sobre riscos climáticos. Não foi medida redução de danos ou melhora de compreensão pelos usuários.
+**ODS:** meta 11.5, pelo apoio informativo à prevenção de desastres; meta 13.3, pela educação sobre riscos climáticos.
 
-**Impacto a medir:** compreensão das orientações e facilidade de encontrar informação com fonte, em testes futuros com usuários.
-
-**Repositório:** https://github.com/fernandakaory/gs-belka-genai — acesso público ainda precisa ser confirmado.
+**Repositório:** https://github.com/fernandakaory/gs-belka-genai
 
 **Vídeo:** [demonstração da Belka Gen AI no YouTube](https://youtu.be/IN0QhtyyTC8).
 

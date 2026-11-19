@@ -58,6 +58,6 @@ A análise abaixo identifica cinco ocorrências de falha observadas nas resposta
 
 ## Conclusão
 
-A comparação mostrou ganhos de respeito ao formato esperado com RAG, LoRA e agente. Entretanto, a combinação de todos os componentes não apresentou desempenho superior em todas as métricas.
+As configurações com RAG produziram mais respostas em JSON válido do que o baseline. Entre os modos avaliados, RAG + LoRA citou o gabarito em mais casos respondíveis (11 de 12) do que RAG + LoRA + agente (10 de 12).
 
 Os resultados reforçam a necessidade de avaliar separadamente formato, recuperação, fundamentação e adequação das respostas, especialmente em uma aplicação que oferece orientações relacionadas à segurança da população.
